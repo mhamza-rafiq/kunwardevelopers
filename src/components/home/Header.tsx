@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -14,6 +16,11 @@ const navLinks = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,12 +31,83 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useLayoutEffect(() => {
+    if (!headerRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Initial header slide down
+      gsap.from(headerRef.current, {
+        y: -100,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Logo scale animation
+      gsap.from(logoRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.3,
+        ease: "back.out(1.7)",
+      });
+
+      // Nav links stagger from right
+      const links = navRef.current?.querySelectorAll("a");
+      if (links?.length) {
+        gsap.from(links, {
+          x: 30,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          delay: 0.4,
+          ease: "power3.out",
+        });
+      }
+
+      // CTA button
+      gsap.from(ctaRef.current, {
+        x: 30,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.7,
+        ease: "power3.out",
+      });
+    }, headerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Mobile menu animation
+  useLayoutEffect(() => {
+    if (!mobileMenuRef.current) return;
+
+    if (isMobileMenuOpen) {
+      const ctx = gsap.context(() => {
+        gsap.from(mobileMenuRef.current, {
+          opacity: 0,
+          duration: 0.3,
+        });
+
+        const links = mobileMenuRef.current?.querySelectorAll(".mobile-link");
+        if (links?.length) {
+          gsap.from(links, {
+            x: -40,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.06,
+            ease: "power3.out",
+          });
+        }
+      }, mobileMenuRef);
+
+      return () => ctx.revert();
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
+      <header
+        ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-primary/95 backdrop-blur-sm shadow-lg"
@@ -39,7 +117,7 @@ const Header = () => {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-20 md:h-24">
             {/* Logo */}
-            <a href="/" className="flex flex-col">
+            <a ref={logoRef} href="/" className="flex flex-col">
               <span className="font-serif text-xl md:text-2xl text-primary-foreground">
                 Kunwar
               </span>
@@ -49,7 +127,7 @@ const Header = () => {
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav ref={navRef} className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
@@ -63,7 +141,7 @@ const Header = () => {
             </nav>
 
             {/* CTA Button - Desktop */}
-            <div className="hidden lg:block">
+            <div ref={ctaRef} className="hidden lg:block">
               <button className="px-6 py-3 bg-accent text-accent-foreground font-sans text-xs tracking-wider uppercase hover:bg-accent/90 transition-colors">
                 Invest Now
               </button>
@@ -83,64 +161,46 @@ const Header = () => {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-primary pt-24 lg:hidden"
-          >
-            <nav className="container mx-auto px-6 py-8">
-              <div className="space-y-6">
-                {navLinks.map((link, index) => (
-                  <motion.a
-                    key={link.label}
-                    href={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-primary-foreground font-serif text-3xl hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
-              </div>
+      {isMobileMenuOpen && (
+        <div
+          ref={mobileMenuRef}
+          className="fixed inset-0 z-40 bg-primary pt-24 lg:hidden"
+        >
+          <nav className="container mx-auto px-6 py-8">
+            <div className="space-y-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mobile-link block text-primary-foreground font-serif text-3xl hover:text-accent transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-                className="mt-12"
-              >
-                <button className="w-full px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wider uppercase">
-                  Invest Now
-                </button>
-              </motion.div>
+            <div className="mobile-link mt-12">
+              <button className="w-full px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wider uppercase">
+                Invest Now
+              </button>
+            </div>
 
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className="mt-12 pt-8 border-t border-primary-foreground/10"
-              >
-                <p className="text-primary-foreground/60 font-sans text-sm mb-2">
-                  info@kunwardevelopers.com
-                </p>
-                <p className="text-primary-foreground/60 font-sans text-sm">
-                  +92 51 234 5678
-                </p>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {/* Contact Info */}
+            <div className="mobile-link mt-12 pt-8 border-t border-primary-foreground/10">
+              <p className="text-primary-foreground/60 font-sans text-sm mb-2">
+                info@kunwardevelopers.com
+              </p>
+              <p className="text-primary-foreground/60 font-sans text-sm">
+                +92 51 234 5678
+              </p>
+            </div>
+          </nav>
+        </div>
+      )}
     </>
   );
 };
