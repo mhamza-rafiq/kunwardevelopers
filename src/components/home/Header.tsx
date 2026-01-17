@@ -5,12 +5,12 @@ import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Infrastructure", href: "#infrastructure" },
-  { label: "Mining", href: "#mining" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Infrastructure", href: "/#infrastructure" },
+  { label: "Mining", href: "/#mining" },
+  { label: "Leadership", href: "/#leadership" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Header = () => {
