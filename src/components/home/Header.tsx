@@ -6,11 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Infrastructure", href: "/#infrastructure" },
-  { label: "Mining", href: "/#mining" },
-  { label: "Leadership", href: "/#leadership" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Top City", href: "#top-city" },
+  { label: "Legacy", href: "#legacy" },
+  { label: "Leadership", href: "#leadership" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -38,39 +37,39 @@ const Header = () => {
       // Initial header slide down
       gsap.from(headerRef.current, {
         y: -100,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 1,
+        ease: "power2.out",
       });
 
-      // Logo scale animation
+      // Logo fade in
       gsap.from(logoRef.current, {
-        scale: 0.8,
         opacity: 0,
-        duration: 0.6,
+        y: 10,
+        duration: 0.8,
         delay: 0.3,
-        ease: "back.out(1.7)",
+        ease: "power2.out",
       });
 
-      // Nav links stagger from right
+      // Nav links stagger
       const links = navRef.current?.querySelectorAll("a");
       if (links?.length) {
         gsap.from(links, {
-          x: 30,
           opacity: 0,
-          duration: 0.5,
+          y: 10,
+          duration: 0.6,
           stagger: 0.08,
           delay: 0.4,
-          ease: "power3.out",
+          ease: "power2.out",
         });
       }
 
       // CTA button
       gsap.from(ctaRef.current, {
-        x: 30,
         opacity: 0,
-        duration: 0.5,
+        y: 10,
+        duration: 0.6,
         delay: 0.7,
-        ease: "power3.out",
+        ease: "power2.out",
       });
     }, headerRef);
 
@@ -85,7 +84,7 @@ const Header = () => {
       const ctx = gsap.context(() => {
         gsap.from(mobileMenuRef.current, {
           opacity: 0,
-          duration: 0.3,
+          duration: 0.4,
         });
 
         const links = mobileMenuRef.current?.querySelectorAll(".mobile-link");
@@ -93,9 +92,9 @@ const Header = () => {
           gsap.from(links, {
             x: -40,
             opacity: 0,
-            duration: 0.4,
-            stagger: 0.06,
-            ease: "power3.out",
+            duration: 0.5,
+            stagger: 0.08,
+            ease: "power2.out",
           });
         }
       }, mobileMenuRef);
@@ -110,29 +109,33 @@ const Header = () => {
         ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-primary/95 backdrop-blur-sm shadow-lg"
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-md py-3"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20 md:h-24">
+          <div className={`flex items-center justify-between transition-all duration-500 ${
+            isScrolled ? "h-14" : "h-16"
+          }`}>
             {/* Logo */}
             <a ref={logoRef} href="/" className="flex flex-col">
-              <span className="font-serif text-xl md:text-2xl text-primary-foreground">
+              <span className={`font-serif text-foreground transition-all duration-500 tracking-institutional ${
+                isScrolled ? "text-xl" : "text-2xl"
+              }`}>
                 Kunwar
               </span>
-              <span className="text-accent font-sans text-[10px] tracking-[0.25em] uppercase -mt-1">
+              <span className="text-accent font-sans text-[10px] tracking-[0.25em] uppercase -mt-0.5">
                 Developers
               </span>
             </a>
 
             {/* Desktop Navigation */}
-            <nav ref={navRef} className="hidden lg:flex items-center gap-8">
+            <nav ref={navRef} className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-primary-foreground/80 font-sans text-sm tracking-wide hover:text-accent transition-colors relative group"
+                  className="text-foreground/70 font-sans text-sm tracking-wide hover:text-accent transition-colors duration-300 relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
@@ -142,15 +145,18 @@ const Header = () => {
 
             {/* CTA Button - Desktop */}
             <div ref={ctaRef} className="hidden lg:block">
-              <button className="px-6 py-3 bg-accent text-accent-foreground font-sans text-xs tracking-wider uppercase hover:bg-accent/90 transition-colors">
+              <a 
+                href="#contact"
+                className="px-7 py-3 bg-accent text-accent-foreground font-sans text-xs tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+              >
                 Invest Now
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-primary-foreground p-2"
+              className="lg:hidden text-foreground p-2"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? (
@@ -167,34 +173,38 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="fixed inset-0 z-40 bg-primary pt-24 lg:hidden"
+          className="fixed inset-0 z-40 bg-background pt-24 lg:hidden"
         >
           <nav className="container mx-auto px-6 py-8">
-            <div className="space-y-6">
+            <div className="space-y-8">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mobile-link block text-primary-foreground font-serif text-3xl hover:text-accent transition-colors"
+                  className="mobile-link block text-foreground font-serif text-4xl hover:text-accent transition-colors tracking-institutional"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            <div className="mobile-link mt-12">
-              <button className="w-full px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wider uppercase">
+            <div className="mobile-link mt-16">
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="inline-block w-full text-center px-8 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase"
+              >
                 Invest Now
-              </button>
+              </a>
             </div>
 
             {/* Contact Info */}
-            <div className="mobile-link mt-12 pt-8 border-t border-primary-foreground/10">
-              <p className="text-primary-foreground/60 font-sans text-sm mb-2">
+            <div className="mobile-link mt-16 pt-10 border-t border-foreground/10">
+              <p className="text-foreground/50 font-sans text-sm mb-3">
                 info@kunwardevelopers.com
               </p>
-              <p className="text-primary-foreground/60 font-sans text-sm">
+              <p className="text-foreground/50 font-sans text-sm">
                 +92 51 234 5678
               </p>
             </div>

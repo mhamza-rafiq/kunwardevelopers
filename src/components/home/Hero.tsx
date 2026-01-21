@@ -1,5 +1,4 @@
 import { useRef, useLayoutEffect } from "react";
-import { ChevronDown } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -7,111 +6,96 @@ gsap.registerPlugin(ScrollTrigger);
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const taglineRef = useRef<HTMLParagraphElement>(null);
   const subheadRef = useRef<HTMLParagraphElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const scrollRef = useRef<HTMLButtonElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
-
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
+  const logoRef = useRef<HTMLDivElement>(null);
+  const girihRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Create main timeline
-      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-
-      // Animate decorative line from center
-      tl.from(lineRef.current, {
-        scaleX: 0,
-        duration: 1,
-        ease: "power3.inOut",
+      // Camera pullback on background - cinematic opening
+      gsap.from(bgRef.current, {
+        scale: 1.15,
+        duration: 2.5,
+        ease: "power2.out",
       });
 
-      // Animate tagline with blur effect
-      tl.from(
-        taglineRef.current,
-        {
-          opacity: 0,
-          y: 30,
-          filter: "blur(10px)",
-          duration: 1,
-        },
-        "-=0.5"
-      );
+      // Logo mark fade in
+      gsap.from(logoRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        delay: 0.3,
+        ease: "power2.out",
+      });
 
-      // Split headline animation - animate each word
-      const headlines = headlineRef.current?.querySelectorAll(".gsap-word");
-      if (headlines?.length) {
-        tl.from(
-          headlines,
-          {
-            y: 120,
-            opacity: 0,
-            rotationX: -40,
-            duration: 1.2,
-            stagger: 0.08,
-            ease: "power4.out",
-          },
-          "-=0.7"
-        );
-      }
+      // Main headline slide up - authoritative, no rotation
+      gsap.from(headlineRef.current, {
+        opacity: 0,
+        y: 60,
+        duration: 1.2,
+        delay: 0.5,
+        ease: "power2.out",
+      });
 
       // Subheadline fade in
-      tl.from(
-        subheadRef.current,
-        {
-          opacity: 0,
-          y: 40,
-          duration: 1,
-        },
-        "-=0.5"
-      );
-
-      // CTA buttons stagger up
-      const buttons = ctaRef.current?.querySelectorAll("button");
-      if (buttons?.length) {
-        tl.from(
-          buttons,
-          {
-            opacity: 0,
-            y: 40,
-            stagger: 0.15,
-            duration: 0.8,
-          },
-          "-=0.4"
-        );
-      }
-
-      // Scroll indicator
-      tl.from(
-        scrollRef.current,
-        {
-          opacity: 0,
-          duration: 0.6,
-        },
-        "-=0.2"
-      );
-
-      // Continuous scroll indicator bounce
-      gsap.to(scrollRef.current?.querySelector("svg"), {
-        y: 10,
-        duration: 1.2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
+      gsap.from(subheadRef.current, {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        delay: 0.9,
+        ease: "power2.out",
       });
 
-      // Parallax background on scroll
+      // CTA buttons stagger
+      const buttons = ctaRef.current?.querySelectorAll("a");
+      if (buttons?.length) {
+        gsap.from(buttons, {
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.8,
+          delay: 1.2,
+          ease: "power2.out",
+        });
+      }
+
+      // Scroll indicator - subtle fade pulse (no bounce)
+      gsap.from(scrollRef.current, {
+        opacity: 0,
+        duration: 0.8,
+        delay: 1.6,
+        ease: "power2.out",
+      });
+
+      gsap.to(scrollRef.current, {
+        opacity: 0.4,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        delay: 2,
+        ease: "sine.inOut",
+      });
+
+      // Girih pattern slow parallax on scroll
+      gsap.to(girihRef.current, {
+        yPercent: -15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      // Background parallax on scroll
       gsap.to(bgRef.current, {
-        yPercent: 30,
+        yPercent: 25,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -125,104 +109,102 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden"
     >
-      {/* Girih Pattern Overlay */}
-      <div className="absolute inset-0 girih-pattern opacity-60" />
+      {/* Girih Pattern Layer - 4% opacity watermark with parallax */}
+      <div ref={girihRef} className="girih-layer" />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary" />
-
-      {/* Parallax Background Image */}
+      {/* Background Image - Dusk/Dawn Aerial */}
       <div
         ref={bgRef}
-        className="absolute inset-0 opacity-20 scale-110"
+        className="absolute inset-0 opacity-30"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80')`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center 40%",
         }}
       />
 
+      {/* Heavy Dark Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Decorative Line */}
-          <div ref={lineRef} className="w-24 h-px bg-accent mx-auto mb-8" />
+        <div className="max-w-5xl mx-auto">
+          {/* Logo Mark */}
+          <div ref={logoRef} className="mb-10">
+            <div className="inline-block">
+              <span className="text-accent font-serif text-6xl md:text-7xl tracking-institutional">K</span>
+            </div>
+          </div>
 
-          {/* Tagline */}
-          <p
-            ref={taglineRef}
-            className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
-          >
-            From Earth to Communities · Since 1956
-          </p>
-
-          {/* Main Headline with split text */}
+          {/* Main Headline - Statement of Power */}
           <h1
             ref={headlineRef}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl text-primary-foreground leading-tight mb-8 perspective-1000"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground leading-[1.1] mb-8 tracking-institutional"
           >
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block gsap-word">Building</span>
-            </span>{" "}
-            <span className="inline-block overflow-hidden">
-              <span className="inline-block gsap-word">Futures,</span>
-            </span>
+            From earth to communities.
             <br />
-            <span className="inline-block overflow-hidden text-accent">
-              <span className="inline-block gsap-word">Not</span>
-            </span>{" "}
-            <span className="inline-block overflow-hidden text-accent">
-              <span className="inline-block gsap-word">Just</span>
-            </span>{" "}
-            <span className="inline-block overflow-hidden text-accent">
-              <span className="inline-block gsap-word">Properties</span>
-            </span>
+            <span className="text-accent">C-1 construction. Mining-backed development.</span>
+            <br />
+            70 years in Pakistan.
           </h1>
 
           {/* Subheadline */}
           <p
             ref={subheadRef}
-            className="text-primary-foreground/80 font-sans text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="text-foreground/70 font-sans text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
           >
-            Pakistan's most credible vertically integrated development
-            group—combining heritage, infrastructure mastery, and smart urban
-            ambition.
+            A vertically integrated development and infrastructure group—30,000 kanals, C-1 license, 6 mining leases.
           </p>
 
-          {/* CTA Buttons */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <button className="px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-wider uppercase hover:bg-accent/90 transition-colors">
-              Explore Developments
-            </button>
-            <button className="px-8 py-4 border border-primary-foreground/30 text-primary-foreground font-sans text-sm tracking-wider uppercase hover:bg-primary-foreground/10 transition-colors">
-              Our Legacy
-            </button>
+          {/* Two CTAs Only */}
+          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-5 justify-center">
+            <a
+              href="#top-city"
+              className="inline-block px-10 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+            >
+              Explore Top City
+            </a>
+            <a
+              href="#legacy"
+              className="inline-block px-10 py-5 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+            >
+              View Our Story
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <button
+      {/* Scroll Indicator - Subtle Fade Pulse */}
+      <div
         ref={scrollRef}
         onClick={scrollToContent}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-accent transition-colors cursor-pointer"
-        aria-label="Scroll to content"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
       >
-        <ChevronDown className="w-8 h-8" />
-      </button>
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-foreground/50 font-sans text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+          <div className="w-px h-10 bg-gradient-to-b from-accent to-transparent" />
+        </div>
+      </div>
 
       {/* Bottom Brand Mark */}
-      <div className="absolute bottom-10 right-10 hidden lg:block">
+      <div className="absolute bottom-12 right-12 hidden lg:block">
         <p
-          className="text-primary-foreground/40 font-sans text-xs tracking-widest uppercase"
+          className="text-foreground/30 font-sans text-[10px] tracking-[0.3em] uppercase"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
         >
-          Kunwar Developers
+          Kunwar Developers · Est. 1956
         </p>
       </div>
     </section>
