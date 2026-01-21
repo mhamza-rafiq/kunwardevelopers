@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { BilingualLogo } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -117,16 +118,13 @@ const Header = () => {
           <div className={`flex items-center justify-between transition-all duration-500 ${
             isScrolled ? "h-14" : "h-16"
           }`}>
-            {/* Logo */}
-            <a ref={logoRef} href="/" className="flex flex-col">
-              <span className={`font-serif text-foreground transition-all duration-500 tracking-institutional ${
-                isScrolled ? "text-xl" : "text-2xl"
-              }`}>
-                Kunwar
-              </span>
-              <span className="text-accent font-sans text-[10px] tracking-[0.25em] uppercase -mt-0.5">
-                Developers
-              </span>
+            {/* Bilingual Logo */}
+            <a ref={logoRef} href="/" className="block">
+              <BilingualLogo 
+                size={isScrolled ? "sm" : "md"} 
+                showArabic={!isScrolled}
+                className="transition-all duration-500"
+              />
             </a>
 
             {/* Desktop Navigation */}
