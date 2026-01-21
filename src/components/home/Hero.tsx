@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { PillarK } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -141,10 +142,10 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Logo Mark */}
+          {/* Heritage Pillar K Logo Mark */}
           <div ref={logoRef} className="mb-10">
-            <div className="inline-block">
-              <span className="text-accent font-serif text-6xl md:text-7xl tracking-institutional">K</span>
+            <div className="inline-block text-accent">
+              <PillarK size={80} variant="primary" animated className="md:w-24 md:h-24" />
             </div>
           </div>
 
