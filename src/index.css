@@ -24,39 +24,40 @@ html.lenis, html.lenis body {
 }
 
 /* Kunwar Developers Design System
-   Institutional Luxury Rooted in Heritage
+   Cinematic Institutional Film Aesthetic
+   "Power + Permanence" - Dark Canvas Default
    All colors in HSL format
 */
 
 @layer base {
   :root {
-    /* Kunwar Brand Colors */
-    --background: 43 38% 93%; /* Sandstone Cream */
-    --foreground: 216 71% 13%; /* Midnight Navy */
+    /* Cinematic Dark Theme - Default Canvas */
+    --background: 216 71% 8%; /* Deep Midnight Navy */
+    --foreground: 43 38% 93%; /* Sandstone Cream */
 
-    --card: 0 0% 100%;
-    --card-foreground: 216 71% 13%;
+    --card: 216 71% 11%;
+    --card-foreground: 43 38% 93%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 216 71% 13%;
+    --popover: 216 71% 10%;
+    --popover-foreground: 43 38% 93%;
 
-    --primary: 216 71% 13%; /* Midnight Navy */
+    --primary: 216 71% 8%; /* Midnight Navy */
     --primary-foreground: 43 38% 93%;
 
     --secondary: 43 38% 93%; /* Sandstone Cream */
     --secondary-foreground: 216 71% 13%;
 
-    --muted: 43 20% 88%;
-    --muted-foreground: 216 30% 40%;
+    --muted: 216 50% 15%;
+    --muted-foreground: 43 20% 70%;
 
     --accent: 43 65% 52%; /* Brushed Gold */
-    --accent-foreground: 216 71% 13%;
+    --accent-foreground: 216 71% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 43 30% 85%;
-    --input: 43 30% 85%;
+    --border: 216 50% 18%;
+    --input: 216 50% 18%;
     --ring: 43 65% 52%;
 
     --radius: 0.25rem;
@@ -65,56 +66,57 @@ html.lenis, html.lenis body {
     --gold: 43 65% 52%; /* Brushed Gold #D4AF37 */
     --bronze: 30 35% 49%; /* Imperial Bronze #A67C52 */
     --emerald: 151 62% 29%; /* Emerald Green #1B7741 */
-    --navy: 216 71% 13%; /* Midnight Navy #0A1D37 */
+    --navy: 216 71% 8%; /* Deep Midnight Navy */
+    --navy-light: 216 71% 13%;
     --cream: 43 38% 93%; /* Sandstone Cream #F5F2E8 */
     --cream-dark: 43 25% 88%;
 
-    --sidebar-background: 216 71% 13%;
+    --sidebar-background: 216 71% 6%;
     --sidebar-foreground: 43 38% 93%;
     --sidebar-primary: 43 65% 52%;
-    --sidebar-primary-foreground: 216 71% 13%;
-    --sidebar-accent: 216 50% 20%;
+    --sidebar-primary-foreground: 216 71% 8%;
+    --sidebar-accent: 216 50% 12%;
     --sidebar-accent-foreground: 43 38% 93%;
-    --sidebar-border: 216 50% 20%;
+    --sidebar-border: 216 50% 15%;
     --sidebar-ring: 43 65% 52%;
   }
 
   .dark {
-    --background: 216 71% 8%;
+    --background: 216 71% 5%;
     --foreground: 43 38% 93%;
 
-    --card: 216 71% 10%;
+    --card: 216 71% 8%;
     --card-foreground: 43 38% 93%;
 
-    --popover: 216 71% 10%;
+    --popover: 216 71% 8%;
     --popover-foreground: 43 38% 93%;
 
     --primary: 43 65% 52%;
-    --primary-foreground: 216 71% 13%;
+    --primary-foreground: 216 71% 8%;
 
-    --secondary: 216 50% 18%;
+    --secondary: 216 50% 12%;
     --secondary-foreground: 43 38% 93%;
 
-    --muted: 216 50% 18%;
-    --muted-foreground: 43 20% 70%;
+    --muted: 216 50% 12%;
+    --muted-foreground: 43 20% 65%;
 
     --accent: 43 65% 52%;
-    --accent-foreground: 216 71% 13%;
+    --accent-foreground: 216 71% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 216 50% 20%;
-    --input: 216 50% 20%;
+    --border: 216 50% 15%;
+    --input: 216 50% 15%;
     --ring: 43 65% 52%;
 
-    --sidebar-background: 216 71% 8%;
+    --sidebar-background: 216 71% 4%;
     --sidebar-foreground: 43 38% 93%;
     --sidebar-primary: 43 65% 52%;
-    --sidebar-primary-foreground: 216 71% 13%;
-    --sidebar-accent: 216 50% 15%;
+    --sidebar-primary-foreground: 216 71% 8%;
+    --sidebar-accent: 216 50% 10%;
     --sidebar-accent-foreground: 43 38% 93%;
-    --sidebar-border: 216 50% 15%;
+    --sidebar-border: 216 50% 12%;
     --sidebar-ring: 43 65% 52%;
   }
 }
@@ -137,7 +139,7 @@ html.lenis, html.lenis body {
   /* Custom selection color */
   ::selection {
     background-color: hsl(var(--gold) / 0.3);
-    color: hsl(var(--navy));
+    color: hsl(var(--cream));
   }
 }
 
@@ -151,8 +153,39 @@ html.lenis, html.lenis body {
     font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   }
 
-  /* Girih pattern overlay */
+  /* Institutional letter-spacing for authority */
+  .tracking-institutional {
+    letter-spacing: 0.04em;
+  }
+
+  /* Girih pattern overlay - Subtle 3-4% for cinematic watermark */
   .girih-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M30 0L60 30L30 60L0 30z M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.04'%3E%3Cpath d='M30 0L60 30L30 60L0 30z M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Slow parallax layer for girih */
+  .girih-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='1'%3E%3Cpath d='M40 0L80 40L40 80L0 40z M40 15L65 40L40 65L15 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* Cinematic section transitions */
+@layer components {
+  .section-cinematic {
+    @apply relative overflow-hidden;
+  }
+
+  /* Cream floating cards on dark */
+  .card-cream {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  /* Emerald accent line - subtle dividers only */
+  .line-emerald {
+    background-color: hsl(var(--emerald));
   }
 }
