@@ -4,12 +4,6 @@ import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const amenities = [
-  "Lakefront promenade & water features",
-  "International-grade high-rise living",
-  "Rooftop amenities & sky lounges",
-  "Premium retail & dining district",
-];
 
 const LakeshoreShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,19 +74,8 @@ const LakeshoreShowcase = () => {
             <span className="block text-accent">Towers</span>
           </h2>
           <p className="reveal-item text-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Premium lakeside residences within Top City. International-grade amenities 
-            with panoramic views of the Margalla Hills and city skyline.
+            Premium lakeside high-rise. International-grade living. Margalla views.
           </p>
-
-          {/* Amenities Grid */}
-          <div className="reveal-item grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-2xl mx-auto mb-12">
-            {amenities.map((amenity, index) => (
-              <div key={index} className="flex items-start gap-4 p-4 border border-foreground/10 hover:border-accent/30 transition-colors duration-300">
-                <div className="w-1.5 h-1.5 bg-accent mt-2.5 flex-shrink-0" />
-                <span className="text-foreground/80 font-sans text-base">{amenity}</span>
-              </div>
-            ))}
-          </div>
 
           {/* CTA */}
           <a
