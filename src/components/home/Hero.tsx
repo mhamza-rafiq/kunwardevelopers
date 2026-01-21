@@ -165,7 +165,7 @@ const Hero = () => {
             ref={subheadRef}
             className="text-foreground/70 font-sans text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
           >
-            A vertically integrated development and infrastructure group—30,000 kanals, C-1 license, 6 mining leases.
+            30,000 kanals. C-1 license. 6 mining leases. Complete vertical integration.
           </p>
 
           {/* Two CTAs Only */}

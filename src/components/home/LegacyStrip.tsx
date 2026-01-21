@@ -7,25 +7,25 @@ const milestones = [
   {
     year: "1956",
     title: "Tando Jam",
-    description: "Post-migration foundations established in Sindh, beginning the Kunwar legacy.",
+    description: "Post-migration foundations in Sindh.",
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&q=80",
   },
   {
     year: "1972-1980",
     title: "Chishtian Colonies",
-    description: "Kunwar Colony established—first organized residential communities in Punjab.",
+    description: "Organized residential communities established.",
     image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800&q=80",
   },
   {
     year: "2010s",
     title: "Motorway Era",
-    description: "C-1 contractor status achieved. Major infrastructure across Pakistan's highway network.",
+    description: "C-1 contractor status. National infrastructure network.",
     image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
   },
   {
     year: "2020s",
     title: "Top City & Mining",
-    description: "Smart city development meets mineral resources. Vertical integration complete.",
+    description: "Vertical integration complete.",
     image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80",
   },
 ];

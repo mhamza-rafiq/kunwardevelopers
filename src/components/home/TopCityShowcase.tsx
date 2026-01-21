@@ -4,18 +4,11 @@ import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const features = [
-  "Smart city infrastructure with IoT integration",
-  "Direct Islamabad Airport access corridor",
-  "Premium residential, commercial & institutional zones",
-  "Underground utilities & fiber-optic network",
-];
 
 const TopCityShowcase = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const featuresRef = useRef<HTMLUListElement>(null);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -43,21 +36,6 @@ const TopCityShowcase = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 60%",
-          toggleActions: "play none none none",
-        },
-      });
-
-      // Features list stagger
-      gsap.from(featuresRef.current?.querySelectorAll("li"), {
-        opacity: 0,
-        x: -30,
-        duration: 0.8,
-        stagger: 0.1,
-        delay: 0.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: featuresRef.current,
-          start: "top 75%",
           toggleActions: "play none none none",
         },
       });
@@ -97,20 +75,9 @@ const TopCityShowcase = () => {
               Top City
               <span className="block text-accent">Islamabad</span>
             </h2>
-            <p className="reveal-item text-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
-              Next-generation smart city at Islamabad's motorway junction and airport gateway. 
-              Pakistan's most strategically positioned development.
+            <p className="reveal-item text-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-12 max-w-xl">
+              Smart city at Islamabad's motorway junction. Direct airport corridor. IoT infrastructure.
             </p>
-
-            {/* Features */}
-            <ul ref={featuresRef} className="space-y-4 mb-12">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="w-1.5 h-1.5 bg-accent mt-2.5 flex-shrink-0" />
-                  <span className="text-foreground/80 font-sans text-base">{feature}</span>
-                </li>
-              ))}
-            </ul>
 
             {/* CTA */}
             <a

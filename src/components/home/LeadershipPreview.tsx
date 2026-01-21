@@ -85,19 +85,8 @@ const LeadershipPreview = () => {
             </blockquote>
 
             <p className="reveal-item text-foreground/60 font-sans text-base leading-relaxed mb-10">
-              Kunwar Developers is guided by leadership that has shaped not only
-              communities but policy itself. A 70-year family legacy of institutional
-              governance standards.
+              Seven decades of family stewardship. Policy influence. Institutional discipline.
             </p>
-
-            <div className="reveal-item space-y-4 mb-10">
-              {["Policy & Economic Development Leadership", "70-Year Family Legacy", "Institutional Governance Standards"].map((item) => (
-                <div key={item} className="flex items-center gap-4">
-                  <div className="w-1.5 h-1.5 bg-accent" />
-                  <p className="text-foreground/80 font-sans text-sm">{item}</p>
-                </div>
-              ))}
-            </div>
 
             <a
               href="/about"
