@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { PatternLayer } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,7 +110,10 @@ const LegacyStrip = () => {
   }, []);
 
   return (
-    <section id="legacy" ref={containerRef} className="bg-background">
+    <section id="legacy" ref={containerRef} className="bg-background relative">
+      {/* Colony Grid Pattern - Era 1 (1972-1980) */}
+      <PatternLayer era="colony" opacity={0.04} />
+
       {/* Section Header - Outside pinned area */}
       <div ref={headerRef} className="py-20 md:py-32">
         <div className="container mx-auto px-6 text-center">

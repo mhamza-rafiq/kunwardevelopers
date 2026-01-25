@@ -7,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Top City", href: "#top-city" },
-  { label: "Legacy", href: "#legacy" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Contact", href: "#contact" },
+  { label: "Top City", href: "/top-city" },
+  { label: "Lakeshore", href: "/lakeshore" },
+  { label: "Leadership", href: "/leadership" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Header = () => {

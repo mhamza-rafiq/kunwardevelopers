@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { PatternLayer } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,6 +139,9 @@ const ChainWeOwn = () => {
 
   return (
     <section ref={containerRef} className="py-32 md:py-48 bg-background relative overflow-hidden">
+      {/* Corridor/Bridge Pattern - Era 2 (Infrastructure Mastery) */}
+      <PatternLayer era="corridor" opacity={0.03} />
+
       {/* Subtle Girih Background */}
       <div className="girih-layer" />
 
