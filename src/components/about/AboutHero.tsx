@@ -69,7 +69,7 @@ const AboutHero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[80vh] flex items-center justify-center bg-primary overflow-hidden"
+      className="relative h-screen flex items-center justify-center bg-primary overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 girih-pattern opacity-30" />

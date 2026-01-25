@@ -129,7 +129,7 @@ const Leadership = () => {
       <Header />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
         <PatternLayer era="colony" opacity={0.03} />
         <div className="girih-layer" />
 
@@ -164,7 +164,7 @@ const Leadership = () => {
       </section>
 
       {/* Leadership Profiles */}
-      <section ref={leadersRef} className="py-20 md:py-32 bg-background">
+      <section ref={leadersRef} className="min-h-screen flex flex-col justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto space-y-16">
             {leaders.map((leader, index) => (
@@ -215,7 +215,7 @@ const Leadership = () => {
       </section>
 
       {/* 70-Year Timeline */}
-      <section ref={timelineRef} className="py-20 md:py-32 bg-card">
+      <section ref={timelineRef} className="min-h-screen flex flex-col justify-center py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
@@ -263,7 +263,7 @@ const Leadership = () => {
       </section>
 
       {/* Core Values */}
-      <section ref={valuesRef} className="py-20 md:py-32 bg-background">
+      <section ref={valuesRef} className="min-h-screen flex flex-col justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">

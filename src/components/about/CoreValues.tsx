@@ -109,7 +109,7 @@ const CoreValues = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-secondary">
+    <section ref={sectionRef} className="min-h-screen flex flex-col justify-center py-20 bg-secondary">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="values-header text-center max-w-3xl mx-auto mb-16 md:mb-24">

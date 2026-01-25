@@ -171,7 +171,7 @@ const TopCity = () => {
       </section>
 
       {/* Phases Grid */}
-      <section id="phases" ref={phasesRef} className="py-20 md:py-32 bg-background">
+      <section id="phases" ref={phasesRef} className="min-h-screen flex flex-col justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
@@ -225,7 +225,7 @@ const TopCity = () => {
       </section>
 
       {/* Amenities */}
-      <section ref={amenitiesRef} className="py-20 md:py-32 bg-card">
+      <section ref={amenitiesRef} className="min-h-screen flex flex-col justify-center py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
@@ -257,7 +257,7 @@ const TopCity = () => {
       </section>
 
       {/* Location Advantage */}
-      <section ref={locationRef} className="py-20 md:py-32 bg-background relative overflow-hidden">
+      <section ref={locationRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
         <PatternLayer era="corridor" opacity={0.03} />
 
         <div className="container mx-auto px-6 relative z-10">

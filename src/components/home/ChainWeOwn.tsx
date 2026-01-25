@@ -138,7 +138,7 @@ const ChainWeOwn = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-32 md:py-48 bg-background relative overflow-hidden">
+    <section ref={containerRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
       {/* Corridor/Bridge Pattern - Era 2 (Infrastructure Mastery) */}
       <PatternLayer era="corridor" opacity={0.03} />
 

@@ -170,7 +170,7 @@ const Lakeshore = () => {
       </section>
 
       {/* Residence Types */}
-      <section id="residences" ref={residencesRef} className="py-20 md:py-32 bg-background">
+      <section id="residences" ref={residencesRef} className="min-h-screen flex flex-col justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
@@ -214,7 +214,7 @@ const Lakeshore = () => {
       </section>
 
       {/* Amenities */}
-      <section ref={amenitiesRef} className="py-20 md:py-32 bg-card">
+      <section ref={amenitiesRef} className="min-h-screen flex flex-col justify-center py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
@@ -241,7 +241,7 @@ const Lakeshore = () => {
       </section>
 
       {/* Views Gallery */}
-      <section ref={viewsRef} className="py-20 md:py-32 bg-background">
+      <section ref={viewsRef} className="min-h-screen flex flex-col justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">

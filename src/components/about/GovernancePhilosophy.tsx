@@ -100,7 +100,7 @@ const GovernancePhilosophy = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-primary overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex flex-col justify-center py-20 bg-primary overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Column */}
