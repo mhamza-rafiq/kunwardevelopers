@@ -1,6 +1,8 @@
 import { useRef, useLayoutEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { PatternLayer } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +62,9 @@ const TopCityShowcase = () => {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-background/80" />
 
+      {/* Node Network Pattern - Era 3 (Smart Cities) */}
+      <PatternLayer era="node" opacity={0.03} />
+
       {/* Girih Layer */}
       <div className="girih-layer" />
 
@@ -80,13 +85,13 @@ const TopCityShowcase = () => {
             </p>
 
             {/* CTA */}
-            <a
-              href="#"
+            <Link
+              to="/top-city"
               className="reveal-item inline-flex items-center gap-3 text-foreground font-sans text-sm tracking-[0.15em] uppercase group hover:text-accent transition-colors duration-300"
             >
               Explore Top City
               <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-            </a>
+            </Link>
           </div>
 
           {/* Stats Card - Cream on Dark */}

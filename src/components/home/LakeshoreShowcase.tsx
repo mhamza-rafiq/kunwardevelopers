@@ -1,6 +1,8 @@
 import { useRef, useLayoutEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
+import { PatternLayer } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +62,9 @@ const LakeshoreShowcase = () => {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-background/75" />
 
+      {/* Node Network Pattern - Era 3 */}
+      <PatternLayer era="node" opacity={0.025} />
+
       {/* Accent Line - Vertical for towers */}
       <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-accent/20 to-transparent hidden lg:block" />
 
@@ -78,13 +83,13 @@ const LakeshoreShowcase = () => {
           </p>
 
           {/* CTA */}
-          <a
-            href="#"
+          <Link
+            to="/lakeshore"
             className="reveal-item inline-flex items-center gap-3 text-foreground font-sans text-sm tracking-[0.15em] uppercase group hover:text-accent transition-colors duration-300"
           >
             Discover Lakeshore
             <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-          </a>
+          </Link>
 
           {/* Stats Row */}
           <div className="reveal-item flex flex-wrap justify-center gap-12 mt-16 pt-12 border-t border-foreground/10">

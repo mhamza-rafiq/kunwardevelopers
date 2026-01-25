@@ -1,6 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
-import { PillarK } from "@/components/brand";
+import { AnimatedLogoReveal } from "@/components/brand";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,11 +142,15 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Heritage Pillar K Logo Mark */}
+          {/* Animated Logo Reveal */}
           <div ref={logoRef} className="mb-10">
-            <div className="inline-block text-accent">
-              <PillarK size={80} variant="primary" animated className="md:w-24 md:h-24" />
-            </div>
+            <AnimatedLogoReveal 
+              size={100} 
+              duration={1.5} 
+              delay={0.3}
+              showText={false}
+              className="md:scale-110"
+            />
           </div>
 
           {/* Main Headline - Statement of Power */}
@@ -172,13 +176,13 @@ const Hero = () => {
           {/* Two CTAs Only */}
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-5 justify-center">
             <a
-              href="#top-city"
+              href="/top-city"
               className="inline-block px-10 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
             >
               Explore Top City
             </a>
             <a
-              href="#legacy"
+              href="/about"
               className="inline-block px-10 py-5 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
             >
               View Our Story
