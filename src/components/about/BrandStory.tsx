@@ -65,7 +65,7 @@ const BrandStory = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 md:py-48 bg-background relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 girih-pattern opacity-50" />
 

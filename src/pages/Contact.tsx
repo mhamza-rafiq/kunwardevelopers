@@ -99,7 +99,7 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
         <PatternLayer era="node" opacity={0.04} />
         <div className="girih-layer" />
 
@@ -120,7 +120,7 @@ const Contact = () => {
       </section>
 
       {/* Inquiry Type Selector + Form */}
-      <section className="py-20 md:py-32 bg-card">
+      <section className="min-h-screen flex items-center py-20 bg-card">
         <div className="container mx-auto px-6">
           <div ref={formRef} className="max-w-5xl mx-auto">
             {/* Inquiry Type Tabs */}
@@ -234,7 +234,7 @@ const Contact = () => {
       </section>
 
       {/* Office Locations */}
-      <section ref={officesRef} className="py-20 md:py-32 bg-background">
+      <section ref={officesRef} className="min-h-screen flex items-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">

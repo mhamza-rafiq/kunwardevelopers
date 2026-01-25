@@ -46,7 +46,7 @@ const LeadershipPreview = () => {
   }, []);
 
   return (
-    <section id="leadership" ref={containerRef} className="py-32 md:py-48 bg-background relative overflow-hidden">
+    <section id="leadership" ref={containerRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
       {/* Subtle Girih */}
       <div className="girih-layer" />
 

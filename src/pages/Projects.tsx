@@ -150,7 +150,7 @@ const Projects = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
         <PatternLayer era="node" opacity={0.06} />
         
@@ -227,7 +227,7 @@ const Projects = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="min-h-screen flex flex-col justify-center py-20">
         <div className="container mx-auto px-6">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20">
