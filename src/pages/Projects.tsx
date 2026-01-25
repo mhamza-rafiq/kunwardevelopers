@@ -185,19 +185,19 @@ const Projects = () => {
 
       {/* Filters */}
       <section className="sticky top-20 z-30 bg-background/95 backdrop-blur-sm border-b border-border/50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-            {/* Status Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground mr-2">Status:</span>
-              <div className="flex gap-2">
+        <div className="container mx-auto px-4 md:px-6 py-3">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            {/* Status Filter - horizontal scroll on mobile */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+              <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Status:</span>
+              <div className="flex gap-1.5 md:gap-2">
                 {statuses.map((status) => (
                   <Button
                     key={status}
                     variant={statusFilter === status ? "default" : "outline"}
                     size="sm"
                     onClick={() => setStatusFilter(status)}
-                    className="capitalize"
+                    className="h-7 px-2.5 text-xs whitespace-nowrap md:h-9 md:px-4 md:text-sm capitalize"
                   >
                     {status === "all" ? "All" : statusConfig[status].label}
                   </Button>
@@ -205,17 +205,17 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* Type Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground mr-2">Type:</span>
-              <div className="flex gap-2 flex-wrap">
+            {/* Type Filter - horizontal scroll on mobile */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+              <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">Type:</span>
+              <div className="flex gap-1.5 md:gap-2">
                 {types.map((type) => (
                   <Button
                     key={type}
                     variant={typeFilter === type ? "default" : "outline"}
                     size="sm"
                     onClick={() => setTypeFilter(type)}
-                    className="capitalize"
+                    className="h-7 px-2.5 text-xs whitespace-nowrap md:h-9 md:px-4 md:text-sm capitalize"
                   >
                     {type === "all" ? "All" : typeConfig[type].label}
                   </Button>

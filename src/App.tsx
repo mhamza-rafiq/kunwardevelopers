@@ -33,27 +33,30 @@ const AnimatedRoutes = () => {
   const location = useLocation();
   
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-      >
-        <Routes location={location}>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/top-city" element={<TopCity />} />
-          <Route path="/lakeshore" element={<Lakeshore />} />
-          <Route path="/leadership" element={<Leadership />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </motion.div>
-    </AnimatePresence>
+    <div className="min-h-screen bg-background">
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          className="min-h-screen bg-background"
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/top-city" element={<TopCity />} />
+            <Route path="/lakeshore" element={<Lakeshore />} />
+            <Route path="/leadership" element={<Leadership />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
+    </div>
   );
 };
 
