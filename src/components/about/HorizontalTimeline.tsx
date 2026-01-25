@@ -6,45 +6,52 @@ gsap.registerPlugin(ScrollTrigger);
 const timelineData = [
   {
     year: "1956",
-    title: "The Beginning",
+    title: "The Beginning: Mirpur's Awakening",
     description:
-      "Kunwar Mining established in Mirpur, laying the foundation for what would become one of Pakistan's most trusted family enterprises.",
+      "The Kunwar family's journey didn't begin with ambition. It began with observation. Post-Partition, Mirpur held mineral wealth that Pakistan desperately needed to rebuild itself. Our founder, Kunwar Qutubuddin Khan, didn't see a business opportunity. He saw a nation's skeleton asking to be built. That year, the first mining lease was acquired. The first granite blocks were extracted. The first promise was made: 'We will build this nation's infrastructure with the same care we'd build our own home.'",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
   },
   {
-    year: "1972",
-    title: "Expansion Era",
+    year: "1972–1980",
+    title: "The Colonies: Organized Dreams",
     description:
-      "Strategic expansion into infrastructure contracting, building roads and bridges that connected communities across the region.",
+      "While real estate speculators were playing land games, the Kunwar family was playing nation-building. Chishtian Colonies emerged as something revolutionary: organized residential communities for ordinary middle-class Pakistanis. Not luxury. Not slums. Justice—in the form of planned streets, reliable water, schools within walking distance, and enough space to plant a garden and raise a child with dignity. We learned something profound in those years: Development serves people, or it serves no one.",
     image: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=600&q=80",
   },
   {
-    year: "1985",
-    title: "Real Estate Vision",
+    year: "1985–1995",
+    title: "The Expansion: From Stone to Cities",
     description:
-      "Entry into real estate development with a vision to create integrated communities that honor Pakistani heritage.",
+      "By the mid-80s, Kunwar Mining had proven it could extract. Now we'd prove we could orchestrate. Real estate division launched—not as a profit center, but as an extension of the mining operation. We began asking: 'What if we didn't just supply the stone for others' cities, but built our own?' Kunwar Heights in Rawalpindi became the prototype: 500 homes. 100% occupancy. This is when the family realized: vertical integration wasn't a strategy. It was an obligation.",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
   },
   {
-    year: "1998",
-    title: "Institutional Growth",
+    year: "1998–2008",
+    title: "Institutional Maturity: The C-1 Moment",
     description:
-      "Formal incorporation as Kunwar Developers, establishing governance structures modeled on global best practices.",
+      "Kunwar Developers was formally incorporated. But this wasn't paperwork. It was a covenant. We applied for C-1 contractor status—Pakistan's highest construction certification. The application wasn't just checked off. It was lived. We spent a decade proving we could execute complex infrastructure projects—motorways, bridges, interchanges—on time, on budget, with zero safety compromises. When the C-1 license arrived in 2010, it wasn't a credential. It was an artifact of promise-keeping.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
   },
   {
-    year: "2008",
-    title: "Top City Islamabad",
+    year: "2008–2020",
+    title: "Top City Islamabad: The Gamble",
     description:
-      "Launch of our flagship project – a 25,000-kanal master-planned community redefining modern Pakistani urbanism.",
+      "Here's what people don't understand about Top City: it was a bet against conventional wisdom. In 2008, when we launched this 10,000-kanal smart city project at the Islamabad motorway junction, the real estate fraternity said we were mad. 'Why would anyone buy out there?' But we saw what others didn't: a new Islamabad being born. An airport coming. A nation reshaping its economic center. So we built it. All of it. From the quarries we own, with infrastructure we designed, on a timeline we promised.",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80",
   },
   {
-    year: "2024",
-    title: "Generational Transition",
+    year: "2020–2025",
+    title: "Lakeshore Towers & Vertical Dominion",
     description:
-      "Third-generation leadership takes the helm, bringing fresh perspective while honoring seven decades of family values.",
+      "By 2020, we'd earned the right to build something purely beautiful. Lakeshore Towers isn't a profit center. It's a statement. 40+ stories of 'This is what Pakistan looks like when we stop compromising.' International construction standards. 5-star amenities. A lake view that changes your definition of home. Simultaneously, we acquired 6 additional mining leases, finalizing our vertical integration. From granite crystal to chandelier in a Lakeshore penthouse—it passes through no hands but ours.",
     image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
+  },
+  {
+    year: "2024–2026",
+    title: "Generational Transition: The Baton Passes",
+    description:
+      "Third-generation leadership takes the helm. But the principles? Unchanged. Hassan Masood Kunwar steps fully into the role of steward—not owner. That's the distinction. Owners extract. Stewards amplify. This generation adds something their fathers couldn't: global perspective, technology fluency, and a hunger to prove that Pakistani developers can compete with the world's best without compromising community values that made us great.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
   },
 ];
 
@@ -129,7 +136,7 @@ const HorizontalTimeline = () => {
     <section ref={sectionRef} className="relative bg-background">
       {/* Section Header */}
       <div className="container mx-auto px-6 py-20">
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto">
           <span className="text-accent font-sans text-xs tracking-[0.3em] uppercase mb-4 block">
             Our Journey
           </span>
@@ -137,8 +144,7 @@ const HorizontalTimeline = () => {
             Seven Decades of Building
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Scroll through our history — from humble quarries to iconic developments 
-            that shape Pakistan's urban landscape.
+            Scroll through our history — each era isn't just a milestone. It's a choice we made about what kind of legacy we wanted to leave.
           </p>
         </div>
       </div>
@@ -165,7 +171,7 @@ const HorizontalTimeline = () => {
           {timelineData.map((item, index) => (
             <div
               key={item.year}
-              className="timeline-card flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[60vh] relative"
+              className="timeline-card flex-shrink-0 w-[85vw] md:w-[70vw] lg:w-[55vw] h-[60vh] relative"
             >
               <div className="relative h-full bg-card border border-border overflow-hidden group">
                 {/* Image */}
@@ -182,8 +188,8 @@ const HorizontalTimeline = () => {
                 <div className="relative h-full flex flex-col justify-end p-8 md:p-12">
                   {/* Year Badge */}
                   <div className="absolute top-8 left-8 md:top-12 md:left-12">
-                    <span className="text-accent font-serif text-6xl md:text-8xl font-light opacity-30">
-                      {item.year}
+                    <span className="text-accent font-serif text-5xl md:text-7xl font-light opacity-30">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
@@ -194,14 +200,14 @@ const HorizontalTimeline = () => {
                   </div>
 
                   {/* Text Content */}
-                  <div className="max-w-md">
+                  <div className="max-w-xl">
                     <span className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-2 block">
                       {item.year}
                     </span>
-                    <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+                    <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground font-sans leading-relaxed">
+                    <p className="text-muted-foreground font-sans text-sm md:text-base leading-relaxed line-clamp-5 md:line-clamp-none">
                       {item.description}
                     </p>
                   </div>

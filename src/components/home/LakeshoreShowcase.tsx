@@ -74,12 +74,20 @@ const LakeshoreShowcase = () => {
           <p className="reveal-item text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6">
             The High-Rise Jewel
           </p>
-          <h2 className="reveal-item font-serif text-5xl md:text-6xl lg:text-7xl text-foreground mb-8 tracking-institutional leading-[1.1]">
-            Lakeshore
-            <span className="block text-accent">Towers</span>
+          <h2 className="reveal-item font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 tracking-institutional leading-[1.1]">
+            Lakeshore Towers
           </h2>
-          <p className="reveal-item text-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Premium lakeside high-rise. International-grade living. Margalla views.
+          <h3 className="reveal-item font-serif text-xl md:text-2xl text-accent italic mb-8">
+            "40+ Stories of Uncompromising Excellence"
+          </h3>
+          <p className="reveal-item text-foreground/70 font-sans text-base md:text-lg leading-relaxed mb-6 max-w-3xl mx-auto">
+            Not every developer gets to build where Margalla Hills kiss the sky and lake water mirrors the city's soul. We do. And we built accordingly.
+          </p>
+          <p className="reveal-item text-foreground/60 font-sans text-base leading-relaxed mb-8 max-w-3xl mx-auto">
+            40+ stories. 200+ residences. 5-star amenities that would embarrass some hotels. But the real luxury? It's the silence. The knowledge that above you are only clouds. Panoramic views that change with the season. An infinity pool at 300 feet where you swim above the city. This isn't apartment living. This is vertical enlightenment.
+          </p>
+          <p className="reveal-item text-accent font-sans text-sm tracking-wide mb-10">
+            Handover is 2025. Not "by 2025." In 2025. We say dates. We keep them.
           </p>
 
           {/* CTA */}
@@ -98,12 +106,16 @@ const LakeshoreShowcase = () => {
               <p className="text-foreground/50 font-sans text-sm mt-2">Stories High</p>
             </div>
             <div className="text-center">
-              <span className="font-serif text-4xl md:text-5xl text-accent tracking-institutional">360°</span>
-              <p className="text-foreground/50 font-sans text-sm mt-2">Panoramic Views</p>
+              <span className="font-serif text-4xl md:text-5xl text-accent tracking-institutional">200+</span>
+              <p className="text-foreground/50 font-sans text-sm mt-2">Residences</p>
             </div>
             <div className="text-center">
               <span className="font-serif text-4xl md:text-5xl text-accent tracking-institutional">5★</span>
               <p className="text-foreground/50 font-sans text-sm mt-2">Hotel Amenities</p>
+            </div>
+            <div className="text-center">
+              <span className="font-serif text-4xl md:text-5xl text-accent tracking-institutional">2025</span>
+              <p className="text-foreground/50 font-sans text-sm mt-2">Handover</p>
             </div>
           </div>
         </div>

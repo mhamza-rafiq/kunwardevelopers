@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const overlineRef = useRef<HTMLParagraphElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ const Hero = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const girihRef = useRef<HTMLDivElement>(null);
+  const proofStripRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
@@ -31,6 +33,15 @@ const Hero = () => {
         y: 20,
         duration: 1,
         delay: 0.3,
+        ease: "power2.out",
+      });
+
+      // Overline fade in
+      gsap.from(overlineRef.current, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        delay: 0.4,
         ease: "power2.out",
       });
 
@@ -65,11 +76,24 @@ const Hero = () => {
         });
       }
 
+      // Proof strip reveal
+      const proofItems = proofStripRef.current?.querySelectorAll(".proof-item");
+      if (proofItems?.length) {
+        gsap.from(proofItems, {
+          opacity: 0,
+          y: 30,
+          stagger: 0.1,
+          duration: 0.8,
+          delay: 1.5,
+          ease: "power2.out",
+        });
+      }
+
       // Scroll indicator - subtle fade pulse (no bounce)
       gsap.from(scrollRef.current, {
         opacity: 0,
         duration: 0.8,
-        delay: 1.6,
+        delay: 1.8,
         ease: "power2.out",
       });
 
@@ -78,7 +102,7 @@ const Hero = () => {
         duration: 2,
         repeat: -1,
         yoyo: true,
-        delay: 2,
+        delay: 2.2,
         ease: "sine.inOut",
       });
 
@@ -143,7 +167,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
           {/* Animated Logo Reveal */}
-          <div ref={logoRef} className="mb-10">
+          <div ref={logoRef} className="mb-8">
             <AnimatedLogoReveal 
               size={100} 
               duration={1.5} 
@@ -153,28 +177,33 @@ const Hero = () => {
             />
           </div>
 
+          {/* Overline - Bronze/Gold */}
+          <p
+            ref={overlineRef}
+            className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
+          >
+            The Earth Remembers
+          </p>
+
           {/* Main Headline - Statement of Power */}
           <h1
             ref={headlineRef}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground leading-[1.1] mb-8 tracking-institutional"
+            className="font-serif text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-foreground leading-[1.15] mb-8 tracking-institutional"
           >
-            From earth to communities.
-            <br />
-            <span className="text-accent">C-1 construction. Mining-backed development.</span>
-            <br />
-            70 years in Pakistan.
+            From the stone beneath our feet to the skylines above us—
+            <span className="text-accent">we build what lasts.</span>
           </h1>
 
-          {/* Subheadline */}
+          {/* Subheadline - Narrative */}
           <p
             ref={subheadRef}
-            className="text-foreground/70 font-sans text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-foreground/70 font-sans text-base md:text-lg max-w-4xl mx-auto leading-relaxed mb-12"
           >
-            30,000 kanals. C-1 license. 6 mining leases. Complete vertical integration.
+            For seven decades, our family has understood a simple truth: the greatest developments aren't projects. They're legacies. From the mineral-rich quarries where our grandfathers first struck granite, to the smart cities where our grandchildren will raise their children—we own the entire story. This isn't vertical integration. This is sovereignty over destiny.
           </p>
 
           {/* Two CTAs Only */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-5 justify-center">
+          <div ref={ctaRef} className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
             <a
               href="/top-city"
               className="inline-block px-10 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
@@ -187,6 +216,29 @@ const Hero = () => {
             >
               View Our Story
             </a>
+          </div>
+        </div>
+
+        {/* Proof Strip */}
+        <div
+          ref={proofStripRef}
+          className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pt-8 border-t border-foreground/10"
+        >
+          <div className="proof-item text-center md:text-left">
+            <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">70 Years</p>
+            <p className="text-foreground/50 font-sans text-xs tracking-wide">Three generations. One family name on every stone.</p>
+          </div>
+          <div className="proof-item text-center md:text-left">
+            <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">Quarry to Gate</p>
+            <p className="text-foreground/50 font-sans text-xs tracking-wide">Complete control. Complete accountability.</p>
+          </div>
+          <div className="proof-item text-center md:text-left">
+            <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">C-1 Status</p>
+            <p className="text-foreground/50 font-sans text-xs tracking-wide">Pakistan's highest construction certification. Earned.</p>
+          </div>
+          <div className="proof-item text-center md:text-left">
+            <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">10,000+</p>
+            <p className="text-foreground/50 font-sans text-xs tracking-wide">Kanals developed. 25,000+ families. Still counting.</p>
           </div>
         </div>
       </div>

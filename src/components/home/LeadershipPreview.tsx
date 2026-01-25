@@ -1,5 +1,6 @@
 import { useRef, useLayoutEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -75,26 +76,26 @@ const LeadershipPreview = () => {
               Leadership & Governance
             </p>
             <h2 className="reveal-item font-serif text-4xl md:text-5xl text-foreground mb-8 tracking-institutional">
-              Vision That Builds Nations
+              How a Family Business Scales Without Losing Its Soul
             </h2>
 
             <blockquote className="reveal-item border-l-2 border-accent pl-8 my-10">
               <p className="font-serif text-xl md:text-2xl text-foreground/90 italic leading-relaxed">
-                "Development must serve more than shareholders. It must serve communities, cities, and the nation's future."
+                "When you own your family name on a project, profit margins take a backseat to legacy margins. You choose materials that will outlast your grandchildren."
               </p>
             </blockquote>
 
             <p className="reveal-item text-foreground/60 font-sans text-base leading-relaxed mb-10">
-              Seven decades of family stewardship. Policy influence. Institutional discipline.
+              Kunwar Developers operates with the rigor of a publicly traded company and the long-term thinking of a family enterprise. Our Chairman, Hassan Masood Kunwar, oversees operations with a family council and independent advisory board. This is why our projects appreciate while others depreciate.
             </p>
 
-            <a
-              href="/about"
+            <Link
+              to="/leadership"
               className="reveal-item inline-flex items-center gap-3 text-foreground font-sans text-sm tracking-[0.15em] uppercase group hover:text-accent transition-colors duration-300"
             >
               Meet Our Leadership
               <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

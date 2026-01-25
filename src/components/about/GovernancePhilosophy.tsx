@@ -3,24 +3,6 @@ import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const pillars = [
-  {
-    title: "Institutional Discipline",
-    description:
-      "We operate with the rigor of a publicly traded company while maintaining the agility and long-term thinking of a family enterprise.",
-  },
-  {
-    title: "Generational Stewardship",
-    description:
-      "Every decision is made with future generations in mind. We are custodians, not just owners, of the Kunwar legacy.",
-  },
-  {
-    title: "Transparent Accountability",
-    description:
-      "Open books, clear communication, and measurable outcomes. We hold ourselves to the standards we expect of others.",
-  },
-];
-
 const GovernancePhilosophy = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -66,10 +48,10 @@ const GovernancePhilosophy = () => {
         },
       });
 
-      // Pillar cards stagger
-      const pillars = contentRef.current?.querySelectorAll(".governance-pillar");
-      if (pillars?.length) {
-        gsap.from(pillars, {
+      // Paragraphs stagger
+      const paragraphs = contentRef.current?.querySelectorAll(".content-paragraph");
+      if (paragraphs?.length) {
+        gsap.from(paragraphs, {
           y: 40,
           opacity: 0,
           duration: 0.8,
@@ -136,38 +118,29 @@ const GovernancePhilosophy = () => {
             <span className="text-accent font-sans text-xs tracking-[0.3em] uppercase mb-4 block">
               How We Operate
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-primary-foreground mb-6">
-              Governance Philosophy
+            <h2 className="font-serif text-4xl md:text-5xl text-primary-foreground mb-8">
+              How a Family Business Scales Without Losing Its Soul
             </h2>
-            <p className="text-primary-foreground/70 font-sans text-lg leading-relaxed mb-12">
-              Family-owned doesn't mean family-run. We've built institutional 
-              structures that ensure accountability, transparency, and 
-              long-term thinking — the hallmarks of enterprises that endure.
+            
+            <p className="content-paragraph text-primary-foreground/80 font-sans text-lg leading-relaxed mb-6">
+              Kunwar Developers operates with the rigor of a publicly traded company and the long-term thinking of a family enterprise. This combination is rare. Rarer still is pulling it off.
             </p>
 
-            {/* Pillars */}
-            <div className="space-y-8">
-              {pillars.map((pillar, index) => (
-                <div key={pillar.title} className="governance-pillar group">
-                  <div className="flex items-start gap-6">
-                    <span className="text-accent font-serif text-3xl font-light mt-1">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-serif text-xl md:text-2xl text-primary-foreground mb-2 group-hover:text-accent transition-colors">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-primary-foreground/60 font-sans leading-relaxed">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  </div>
-                  {index < pillars.length - 1 && (
-                    <div className="w-full h-px bg-primary-foreground/10 mt-8 ml-12" />
-                  )}
-                </div>
-              ))}
-            </div>
+            <p className="content-paragraph text-primary-foreground/70 font-sans text-base leading-relaxed mb-6">
+              Our Chairman, Hassan Masood Kunwar, oversees operations with a family council and independent advisory board. Quarterly reviews ensure we stay aligned between heritage values and growth ambitions. But there's something no board agenda captures:
+            </p>
+
+            <p className="content-paragraph text-accent font-serif text-xl italic mb-6">
+              Accountability that never sleeps.
+            </p>
+
+            <p className="content-paragraph text-primary-foreground/70 font-sans text-base leading-relaxed mb-6">
+              When you own your family name on a project, profit margins take a backseat to legacy margins. You choose materials that will outlast your grandchildren. You hire architects who won't compromise. You select contractors who understand they're building someone's forever home, not just moving aggregate.
+            </p>
+
+            <p className="content-paragraph text-primary-foreground/60 font-sans text-base leading-relaxed">
+              This is why Kunwar Developers' projects appreciate while others depreciate.
+            </p>
           </div>
         </div>
       </div>

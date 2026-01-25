@@ -5,15 +5,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutHero = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const overlineRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
-  const yearRef = useRef<HTMLSpanElement>(null);
 
   useLayoutEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
+      // Overline fade in
+      gsap.from(overlineRef.current, {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power3.out",
+      });
+
       // Split headline animation
       const headline = headlineRef.current;
       if (headline) {
@@ -28,20 +37,9 @@ const AboutHero = () => {
           opacity: 0,
           rotateX: -90,
           duration: 1,
-          stagger: 0.03,
+          stagger: 0.02,
           ease: "power3.out",
-          delay: 0.3,
-        });
-      }
-
-      // Year counter
-      if (yearRef.current) {
-        gsap.from(yearRef.current, {
-          textContent: "1900",
-          duration: 2,
-          ease: "power2.out",
-          delay: 0.5,
-          snap: { textContent: 1 },
+          delay: 0.4,
         });
       }
 
@@ -49,7 +47,7 @@ const AboutHero = () => {
       gsap.from(lineRef.current, {
         scaleX: 0,
         duration: 1.2,
-        delay: 0.6,
+        delay: 0.8,
         ease: "power3.inOut",
       });
 
@@ -58,7 +56,7 @@ const AboutHero = () => {
         y: 30,
         opacity: 0,
         duration: 0.8,
-        delay: 1,
+        delay: 1.2,
         ease: "power3.out",
       });
     }, sectionRef);
@@ -76,12 +74,12 @@ const AboutHero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 text-center relative z-10 py-32">
-        <div className="max-w-4xl mx-auto">
-          {/* Year Badge */}
-          <div className="inline-flex items-center gap-3 mb-8">
+        <div className="max-w-5xl mx-auto">
+          {/* Overline Badge */}
+          <div ref={overlineRef} className="inline-flex items-center gap-3 mb-8">
             <span className="w-12 h-px bg-accent" />
             <span className="text-accent font-sans text-sm tracking-[0.2em] uppercase">
-              Est. <span ref={yearRef}>1956</span>
+              Est. 1956. Destiny Unfolding.
             </span>
             <span className="w-12 h-px bg-accent" />
           </div>
@@ -89,10 +87,10 @@ const AboutHero = () => {
           {/* Headline */}
           <h1
             ref={headlineRef}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground mb-8"
+            className="font-serif text-4xl md:text-6xl lg:text-7xl text-primary-foreground mb-8"
             style={{ perspective: "1000px" }}
           >
-            Our Story
+            Our Story Isn't About Buildings. It's About Belief.
           </h1>
 
           {/* Decorative Line */}
@@ -104,10 +102,9 @@ const AboutHero = () => {
           {/* Subtitle */}
           <p
             ref={subtitleRef}
-            className="font-sans text-lg md:text-xl text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed"
+            className="font-sans text-lg md:text-xl text-primary-foreground/70 max-w-3xl mx-auto leading-relaxed"
           >
-            From the mineral-rich quarries of Mirpur to the skylines of Islamabad, 
-            our journey spans seven decades of building Pakistan's future.
+            Three generations of a family that bet everything—their name, their capital, their future—on the idea that you can build infrastructure that lasts centuries, on a timescale of decades, with a conscience that never sleeps.
           </p>
         </div>
       </div>
