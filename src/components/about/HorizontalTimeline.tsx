@@ -152,8 +152,8 @@ const HorizontalTimeline = () => {
         />
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div ref={triggerRef} className="relative overflow-hidden">
+      {/* Horizontal Scroll Container - centered in viewport */}
+      <div ref={triggerRef} className="relative overflow-hidden min-h-[80vh] flex items-center">
         <div
           ref={trackRef}
           className="flex gap-8 md:gap-12 px-6 md:px-12"
@@ -165,7 +165,7 @@ const HorizontalTimeline = () => {
           {timelineData.map((item, index) => (
             <div
               key={item.year}
-              className="timeline-card flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[70vh] relative"
+              className="timeline-card flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[60vh] relative"
             >
               <div className="relative h-full bg-card border border-border overflow-hidden group">
                 {/* Image */}
