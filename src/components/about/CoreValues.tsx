@@ -8,29 +8,33 @@ const values = [
   {
     icon: Shield,
     title: "Heritage Credibility",
+    tagline: "Your trust isn't borrowed. It's inherited.",
     description:
-      "Three generations of trust built on unwavering commitment to our word. Every promise kept, every commitment honored.",
+      "We don't ask you to bet on Kunwar's vision. We ask you to look at what Kunwar's built. Every stone we've extracted is still standing. Every family we've housed is still living. Every road we've paved is still connecting communities. Three generations don't earn trust by making promises. They earn it by keeping the ones they make, even when circumstances change, markets crash, and easier paths appear.",
     accent: "Since 1956",
   },
   {
     icon: Users,
     title: "Family Governance",
+    tagline: "We put our name on it. So we answer for it.",
     description:
-      "Institutional discipline with family values. We blend corporate best practices with the accountability that comes from putting our family name on every project.",
+      "Kunwar Developers isn't a corporation. It's a family business. The difference? When shareholders want profits, families want legacies. Our governance structure includes independent advisors and institutional discipline. But our real board? It's our grandchildren. Every decision we make is filtered through one question: 'Would we want our great-grandchildren living with the consequences?' This changes everything.",
     accent: "Third Generation",
   },
   {
     icon: Gem,
     title: "Enduring Quality",
+    tagline: "We build for generations, not quarters.",
     description:
-      "We build for generations, not quarters. Our developments are designed to appreciate in value and stand the test of time.",
+      "Every structure Kunwar Developers builds is designed to appreciate—not depreciate—over decades. We use materials that age like wine, not milk. We design communities that become more valuable as they mature, not less. Top City Phase 1, delivered in 2012, appreciates yearly. Kunwar Heights, completed in 1995, is now a coveted address. This isn't accident. This is intention.",
     accent: "Built to Last",
   },
   {
     icon: TreePine,
     title: "Community Stewardship",
+    tagline: "From the earth we extract to the communities we build, we are custodians.",
     description:
-      "From the land we extract to the communities we build, we are custodians of Pakistan's future, not just developers.",
+      "We don't build subdivisions. We architect neighborhoods. We don't sell plots. We invite families into a future. 25,000+ families have chosen to plant their roots in Kunwar communities. Not because they had no choice, but because they had the instinct to recognize that real estate companies create supply. Kunwar creates belonging.",
     accent: "Earth to Communities",
   },
 ];
@@ -117,18 +121,17 @@ const CoreValues = () => {
             What Guides Us
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6">
-            Our Core Values
+            What We Believe (Because We've Lived It)
           </h2>
           <p className="text-muted-foreground font-sans text-lg leading-relaxed">
-            These aren't just words on a wall. They are the principles that have 
-            guided our family through seven decades of building Pakistan's future.
+            These aren't corporate values. These are family lessons earned in blood, sweat, and 70 years of keeping promises when keeping them was expensive.
           </p>
         </div>
 
         {/* Values Grid */}
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
           style={{ perspective: "1000px" }}
         >
           {values.map((value, index) => (
@@ -149,11 +152,14 @@ const CoreValues = () => {
               <span className="text-accent font-sans text-xs tracking-[0.2em] uppercase mb-2 block">
                 {value.accent}
               </span>
-              <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+              <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-2">
                 {value.title}
               </h3>
+              <p className="font-serif text-lg text-accent/80 italic mb-4">
+                "{value.tagline}"
+              </p>
               <div className="value-line w-12 h-px bg-accent mb-4 origin-left" />
-              <p className="text-muted-foreground font-sans leading-relaxed">
+              <p className="text-muted-foreground font-sans text-sm leading-relaxed">
                 {value.description}
               </p>
 

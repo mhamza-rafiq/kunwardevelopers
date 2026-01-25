@@ -7,26 +7,30 @@ gsap.registerPlugin(ScrollTrigger);
 const milestones = [
   {
     year: "1956",
-    title: "Tando Jam",
-    description: "Post-migration foundations in Sindh.",
+    title: "The Quarry",
+    tagline: "Kunwar Mining born in Mirpur. Not a business. A belief.",
+    description: "While others saw stone in the ground, our founder saw the nation it could build. He extracted the first granite blocks that would become Pakistan's foundational infrastructure. This wasn't commerce. This was custodianship of Pakistan's future.",
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&q=80",
   },
   {
-    year: "1972-1980",
-    title: "Chishtian Colonies",
-    description: "Organized residential communities established.",
+    year: "1972–1980",
+    title: "The Colonies",
+    tagline: "Organized settlements for ordinary Pakistanis.",
+    description: "We stopped selling plots. We started building neighborhoods. Chishtian Colonies wasn't a real estate project—it was a social architecture experiment. Families that had nowhere to plant roots suddenly had streets, schools, and Saturday bazaars. We learned that day: development that doesn't serve community is just real estate.",
     image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800&q=80",
   },
   {
     year: "2010s",
-    title: "Motorway Era",
-    description: "C-1 contractor status. National infrastructure network.",
+    title: "The Infrastructure Era",
+    tagline: "C-1 Contractor Status. National roads. A nation connected.",
+    description: "When Pakistan needed someone to build the arteries that would let its blood flow, Kunwar Developers answered. C-1 license wasn't handed to us. It was earned through a thousand promises kept and zero corners cut. Motorways. Bridges. Flyovers. We didn't just build infrastructure. We wove Pakistan tighter.",
     image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&q=80",
   },
   {
     year: "2020s",
-    title: "Top City & Mining",
-    description: "Vertical integration complete.",
+    title: "Vertical Integration",
+    tagline: "When you control every step, there's nowhere to hide.",
+    description: "We acquired 6 active mining leases. Not for profit. For power—the power to guarantee quality, to control timelines, to own accountability. From the moment granite breaks from our earth to the moment a family turns a key in Top City, nothing passes through hands but ours. This is why we sleep well.",
     image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80",
   },
 ];
@@ -120,11 +124,11 @@ const LegacyStrip = () => {
           <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6">
             The Journey
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground tracking-institutional">
-            1956 – 2026
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground tracking-institutional mb-6">
+            A Family's Promise to a Nation
           </h2>
-          <p className="text-foreground/50 font-sans text-lg mt-4">
-            From migration to smart cities
+          <p className="text-foreground/60 font-sans text-lg max-w-3xl mx-auto leading-relaxed">
+            In 1956, Mirpur's mines held limestone and possibility. Our founder, Kunwar Sahib, saw neither. He saw community. He saw Pakistan building itself. So he built with it. Each era below isn't a milestone. It's a choice we made about what kind of legacy we wanted to leave.
           </p>
         </div>
       </div>
@@ -154,7 +158,7 @@ const LegacyStrip = () => {
 
               {/* Content */}
               <div className="panel-content relative z-10 container mx-auto px-6 md:px-20">
-                <div className="max-w-2xl">
+                <div className="max-w-3xl">
                   {/* Year */}
                   <span className="text-accent font-serif text-7xl md:text-9xl opacity-30 absolute -top-8 -left-4">
                     {String(index + 1).padStart(2, "0")}
@@ -162,10 +166,13 @@ const LegacyStrip = () => {
                   <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-4">
                     {milestone.year}
                   </p>
-                  <h3 className="font-serif text-4xl md:text-5xl text-foreground mb-6 tracking-institutional">
+                  <h3 className="font-serif text-4xl md:text-5xl text-foreground mb-4 tracking-institutional">
                     {milestone.title}
                   </h3>
-                  <p className="text-foreground/70 font-sans text-lg leading-relaxed max-w-md">
+                  <p className="text-accent font-serif text-xl md:text-2xl italic mb-6">
+                    "{milestone.tagline}"
+                  </p>
+                  <p className="text-foreground/70 font-sans text-base md:text-lg leading-relaxed max-w-2xl">
                     {milestone.description}
                   </p>
                 </div>

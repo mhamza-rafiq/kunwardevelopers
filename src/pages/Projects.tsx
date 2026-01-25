@@ -28,8 +28,8 @@ const projects: Project[] = [
   {
     id: "top-city",
     name: "Top City Islamabad",
-    subtitle: "Flagship Smart City Development",
-    description: "Pakistan's premier gated community featuring world-class infrastructure, smart city technologies, and unparalleled location advantage.",
+    subtitle: "Pakistan's First True Smart City",
+    description: "When we chose this location—at the convergence of Islamabad's motorway junction, 5 minutes from the new airport—we didn't see real estate coordinates. We saw destiny. 10,000 kanals of urban poetry written in stone and fiber optic.",
     status: "active",
     type: "mixed-use",
     location: "Islamabad",
@@ -44,15 +44,15 @@ const projects: Project[] = [
   {
     id: "lakeshore",
     name: "Lakeshore Towers",
-    subtitle: "Iconic High-Rise Living",
-    description: "40+ stories of luxury residences with panoramic views of Margalla Hills and Rawal Lake, redefining vertical living in the capital.",
+    subtitle: "40+ Stories of Uncompromising Excellence",
+    description: "Not every developer gets to build where Margalla Hills kiss the sky. We do. And we built accordingly. 200+ residences with 5-star amenities that would embarrass some hotels. This isn't apartment living. This is vertical enlightenment.",
     status: "active",
     type: "residential",
     location: "Islamabad",
     stats: [
       { label: "Height", value: "40+ Stories" },
       { label: "Units", value: "200+ Residences" },
-      { label: "Views", value: "360° Panoramic" },
+      { label: "Handover", value: "2025" },
     ],
     link: "/lakeshore",
     featured: true,
@@ -60,14 +60,14 @@ const projects: Project[] = [
   {
     id: "mining-operations",
     name: "Mining & Minerals Division",
-    subtitle: "Resource Extraction Excellence",
-    description: "Six active mining leases across Pakistan, supplying construction materials and rare minerals to domestic and international markets.",
+    subtitle: "The Foundation of Our Vertical Integration",
+    description: "6 active mining leases. Granite. Marble. Minerals. These aren't inputs. They're promises wrapped in stone. We know exactly what we're extracting—because we know exactly what we're building.",
     status: "active",
     type: "mining",
     location: "Multiple Locations",
     stats: [
       { label: "Leases", value: "6 Active" },
-      { label: "Experience", value: "40+ Years" },
+      { label: "Experience", value: "70+ Years" },
       { label: "Output", value: "Industrial Scale" },
     ],
     link: "/contact",
@@ -76,7 +76,7 @@ const projects: Project[] = [
     id: "top-city-phase-4",
     name: "Top City Phase 4",
     subtitle: "Commercial & Tech Hub",
-    description: "Upcoming commercial district featuring tech parks, corporate offices, and retail destinations within the Top City masterplan.",
+    description: "Upcoming commercial district featuring tech parks, corporate offices, and retail destinations. The next chapter of Pakistan's smartest city is being written.",
     status: "upcoming",
     type: "commercial",
     location: "Islamabad",
@@ -91,7 +91,7 @@ const projects: Project[] = [
     id: "lakeshore-villas",
     name: "Lakeshore Villas",
     subtitle: "Waterfront Estate Living",
-    description: "Exclusive villa community adjacent to Lakeshore Towers, offering private gardens, lake access, and resort-style amenities.",
+    description: "Exclusive villa community adjacent to Lakeshore Towers. Private gardens, lake access, and resort-style amenities for those who believe home should be a destination.",
     status: "upcoming",
     type: "residential",
     location: "Islamabad",
@@ -105,8 +105,8 @@ const projects: Project[] = [
   {
     id: "kunwar-heights",
     name: "Kunwar Heights",
-    subtitle: "Legacy Development",
-    description: "Our foundational residential project that established the Kunwar standard for quality construction and community planning.",
+    subtitle: "Where Our Standards Were Born",
+    description: "Our foundational residential project that established the Kunwar standard. 500 homes, 100% occupancy—not because they were sold, but because families chose them and stayed. Completed 1995, appreciating ever since.",
     status: "completed",
     type: "residential",
     location: "Rawalpindi",
@@ -159,7 +159,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="font-sans text-sm tracking-[0.3em] text-primary/70 uppercase mb-4"
+            className="font-sans text-sm tracking-[0.3em] text-accent uppercase mb-4"
           >
             Our Portfolio
           </motion.p>
@@ -167,18 +167,20 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-6"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight mb-6"
           >
-            Projects & Developments
+            Seven Decades of Choices.
+            <span className="block text-accent">Each One Built to Last.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="font-sans text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
-            Seven decades of building Pakistan's future—from flagship smart cities 
-            to mining operations that power our nation's infrastructure.
+            We don't measure our success in projects completed. We measure it in families who chose us, 
+            investors who trusted us, and neighborhoods that became synonymous with quality. Below are 
+            the developments that define what's possible when you control the entire supply chain—from extraction to aspiration.
           </motion.p>
         </div>
       </section>
@@ -287,7 +289,7 @@ const Projects = () => {
                         <h3 className="font-serif text-2xl font-light mb-1 group-hover:text-primary transition-colors">
                           {project.name}
                         </h3>
-                        <p className="text-sm text-primary/70 font-medium mb-3">
+                        <p className="text-sm text-accent font-medium mb-3">
                           {project.subtitle}
                         </p>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-6">

@@ -79,17 +79,13 @@ const BrandStory = () => {
           </div>
         </div>
 
-        {/* Story Paragraph */}
+        {/* Story Paragraph - The Founding Truth */}
         <div className="max-w-4xl mx-auto text-center mb-16">
           <p
             ref={wordsRef}
-            className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary leading-tight"
+            className="font-serif text-2xl md:text-3xl lg:text-4xl text-primary leading-tight"
           >
-            From the ancient quarries of Mirpur, where our ancestors first extracted 
-            stone from the earth, to the modern skylines of Islamabad where we now 
-            shape communities — our journey is Pakistan's journey. We are not just 
-            developers. We are architects of enduring communities, guardians of 
-            heritage, and builders of tomorrow.
+            Every great city is built twice: first in the mind of those who dare to imagine it, then in the hands of those disciplined enough to realize it. Kunwar Developers is both. We are the architects of vision and the builders of permanence. From the ancient quarries of Mirpur to the modern skylines of Islamabad—our journey is Pakistan's journey.
           </p>
         </div>
 
@@ -98,7 +94,7 @@ const BrandStory = () => {
           <div className="inline-flex items-center gap-6">
             <span className="w-12 h-px bg-accent" />
             <p className="font-serif text-xl md:text-2xl text-accent italic">
-              "From Earth to Communities. Since 1956."
+              "We are not just developers. We are architects of enduring communities."
             </p>
             <span className="w-12 h-px bg-accent" />
           </div>
@@ -107,10 +103,10 @@ const BrandStory = () => {
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-24 pt-16 border-t border-border">
           {[
-            { value: "68+", label: "Years of Legacy" },
+            { value: "70+", label: "Years of Legacy" },
             { value: "3", label: "Generations" },
-            { value: "25,000+", label: "Kanal Developed" },
-            { value: "10,000+", label: "Families Served" },
+            { value: "10,000+", label: "Kanals Developed" },
+            { value: "25,000+", label: "Families Served" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <span className="font-serif text-4xl md:text-5xl text-primary block mb-2">

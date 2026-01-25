@@ -76,12 +76,18 @@ const TopCityShowcase = () => {
             <p className="reveal-item text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6">
               Flagship Development
             </p>
-            <h2 className="reveal-item font-serif text-5xl md:text-6xl lg:text-7xl text-foreground mb-8 tracking-institutional leading-[1.1]">
-              Top City
-              <span className="block text-accent">Islamabad</span>
+            <h2 className="reveal-item font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 tracking-institutional leading-[1.1]">
+              Where 10,000 Kanals Became
+              <span className="block text-accent">Pakistan's Future</span>
             </h2>
-            <p className="reveal-item text-foreground/70 font-sans text-lg md:text-xl leading-relaxed mb-12 max-w-xl">
-              Smart city at Islamabad's motorway junction. Direct airport corridor. IoT infrastructure.
+            <h3 className="reveal-item font-serif text-xl md:text-2xl text-foreground/80 italic mb-8">
+              "Top City Islamabad: The City We Promised Pakistan"
+            </h3>
+            <p className="reveal-item text-foreground/70 font-sans text-base md:text-lg leading-relaxed mb-6">
+              Pakistan's first true smart city wasn't a government vision. It was ours. And we staked everything on it.
+            </p>
+            <p className="reveal-item text-foreground/60 font-sans text-base leading-relaxed mb-8">
+              When we chose Islamabad's motorway junction—5 minutes from the new airport, directly linked to the nation's infrastructure spine—we didn't see real estate coordinates. We saw destiny. 10,000 kanals. 5 phases. 24/7 IoT security. 30% dedicated to green. This isn't development. This is urban poetry written in stone and fiber optic.
             </p>
 
             {/* CTA */}
@@ -108,17 +114,17 @@ const TopCityShowcase = () => {
                 </div>
                 <div>
                   <span className="font-serif text-5xl md:text-6xl text-navy tracking-institutional">24/7</span>
-                  <p className="text-navy/60 font-sans text-sm mt-2">Security Coverage</p>
+                  <p className="text-navy/60 font-sans text-sm mt-2">IoT Security</p>
                 </div>
                 <div>
-                  <span className="font-serif text-5xl md:text-6xl text-navy tracking-institutional">AAA</span>
-                  <p className="text-navy/60 font-sans text-sm mt-2">Location Rating</p>
+                  <span className="font-serif text-5xl md:text-6xl text-navy tracking-institutional">30%</span>
+                  <p className="text-navy/60 font-sans text-sm mt-2">Green Space</p>
                 </div>
               </div>
 
               <div className="mt-10 pt-8 border-t border-navy/10">
-                <p className="text-navy/50 font-sans text-sm">
-                  Adjacent to New Islamabad International Airport with direct motorway access.
+                <p className="text-navy/60 font-sans text-sm leading-relaxed">
+                  Phase 3 is alive. Phases 4 and 5 are being built. The construction of Pakistan's next chapter started in 2008 and hasn't stopped.
                 </p>
               </div>
             </div>
