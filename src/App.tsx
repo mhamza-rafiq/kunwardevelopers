@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import TopCity from "./pages/TopCity";
 import Lakeshore from "./pages/Lakeshore";
 import Leadership from "./pages/Leadership";
+import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/top-city" element={<TopCity />} />
             <Route path="/lakeshore" element={<Lakeshore />} />
             <Route path="/leadership" element={<Leadership />} />
