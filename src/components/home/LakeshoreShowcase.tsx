@@ -47,7 +47,7 @@ const LakeshoreShowcase = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={containerRef} className="relative h-screen flex items-center overflow-hidden">
       {/* Full-Bleed Background - Vertical/Tower imagery */}
       <div
         ref={bgRef}
@@ -60,7 +60,7 @@ const LakeshoreShowcase = () => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-background/75" />
+      <div className="absolute inset-0 bg-background/60" />
 
       {/* Node Network Pattern - Era 3 */}
       <PatternLayer era="node" opacity={0.025} />

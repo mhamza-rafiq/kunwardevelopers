@@ -119,7 +119,7 @@ const LegacyStrip = () => {
       <PatternLayer era="colony" opacity={0.04} />
 
       {/* Section Header - Outside pinned area */}
-      <div ref={headerRef} className="py-20 md:py-32">
+      <div ref={headerRef} className="py-16 md:py-24">
         <div className="container mx-auto px-6 text-center">
           <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6">
             The Journey
