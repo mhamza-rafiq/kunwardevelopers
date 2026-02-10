@@ -19,7 +19,7 @@ const Hero = () => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Camera pullback on background - cinematic opening
+      // Camera pullback on background
       gsap.from(bgRef.current, {
         scale: 1.15,
         duration: 2.5,
@@ -143,12 +143,12 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen flex items-center bg-background overflow-hidden"
+      className="relative h-screen flex flex-col bg-background overflow-hidden"
     >
       {/* Girih Pattern Layer */}
       <div ref={girihRef} className="girih-layer" />
 
-      {/* Background Image - Higher opacity for cinematic depth */}
+      {/* Background Image */}
       <div
         ref={bgRef}
         className="absolute inset-0 opacity-50"
@@ -159,64 +159,78 @@ const Hero = () => {
         }}
       />
 
-      {/* Lighter gradient overlay */}
+      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
 
-      {/* Content - Left-aligned on desktop, centered on mobile */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-16 pb-32 md:pb-28">
-        <div className="max-w-4xl text-center lg:text-left">
-          {/* Gold accent line */}
-          <div ref={accentLineRef} className="hidden lg:block w-24 h-px bg-accent mb-8" />
+      {/* Main Content Area — flex-grow pushes proof strip down */}
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="container mx-auto px-6 lg:px-16">
+          <div className="max-w-4xl text-center lg:text-left">
+            {/* Gold accent line */}
+            <div ref={accentLineRef} className="hidden lg:block w-24 h-px bg-accent mb-8" />
 
-          {/* Overline */}
-          <p
-            ref={overlineRef}
-            className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
-          >
-            The Earth Remembers
-          </p>
-
-          {/* Main Headline - Larger, more cinematic */}
-          <h1
-            ref={headlineRef}
-            className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.1] mb-8 tracking-institutional"
-          >
-            From the stone beneath our feet to the skylines above us—
-            <span className="text-accent">we build what lasts.</span>
-          </h1>
-
-          {/* Subheadline - Trimmed to 2 sentences */}
-          <p
-            ref={subheadRef}
-            className="text-foreground/70 font-sans text-base md:text-lg max-w-3xl leading-relaxed mb-12 mx-auto lg:mx-0"
-          >
-            For seven decades, our family has understood a simple truth: the greatest developments aren't projects. They're legacies.
-          </p>
-
-          {/* CTAs - Left-aligned on desktop */}
-          <div ref={ctaRef} className="flex flex-row items-center gap-5 justify-center lg:justify-start" style={{ flexWrap: 'nowrap' }}>
-            <a
-              href="/top-city"
-              className="whitespace-nowrap shrink-0 px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+            {/* Overline */}
+            <p
+              ref={overlineRef}
+              className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
             >
-              Explore Top City
-            </a>
-            <a
-              href="/about"
-              className="whitespace-nowrap shrink-0 px-8 py-4 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+              The Earth Remembers
+            </p>
+
+            {/* Main Headline */}
+            <h1
+              ref={headlineRef}
+              className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.1] mb-8 tracking-institutional"
             >
-              View Our Story
-            </a>
+              From the stone beneath our feet to the skylines above us—
+              <span className="text-accent">we build what lasts.</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p
+              ref={subheadRef}
+              className="text-foreground/70 font-sans text-base md:text-lg max-w-3xl leading-relaxed mb-10 mx-auto lg:mx-0"
+            >
+              For seven decades, our family has understood a simple truth: the greatest developments aren't projects. They're legacies.
+            </p>
+
+            {/* CTAs — always side by side */}
+            <div ref={ctaRef} className="flex items-center gap-5 justify-center lg:justify-start">
+              <a
+                href="/top-city"
+                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+              >
+                Explore Top City
+              </a>
+              <a
+                href="/about"
+                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+              >
+                View Our Story
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Proof Strip - Pinned to bottom of viewport */}
+      {/* Scroll Indicator — between content and proof strip */}
+      <div
+        ref={scrollRef}
+        onClick={scrollToContent}
+        className="relative z-10 flex justify-center pb-4 cursor-pointer"
+      >
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-foreground/50 font-sans text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-accent to-transparent" />
+        </div>
+      </div>
+
+      {/* Proof Strip — naturally at the bottom via flexbox */}
       <div
         ref={proofStripRef}
-        className="absolute bottom-0 left-0 right-0 z-10 border-t border-foreground/10 bg-background/40 backdrop-blur-sm"
+        className="relative z-10 border-t border-foreground/10 bg-background/40 backdrop-blur-sm"
       >
-        <div className="container mx-auto px-6 py-6">
+        <div className="container mx-auto px-6 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="proof-item text-center md:text-left">
               <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">70 Years</p>
@@ -238,20 +252,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        ref={scrollRef}
-        onClick={scrollToContent}
-        className="absolute bottom-28 left-1/2 -translate-x-1/2 cursor-pointer"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-foreground/50 font-sans text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-accent to-transparent" />
-        </div>
-      </div>
-
       {/* Bottom Brand Mark */}
-      <div className="absolute bottom-28 right-12 hidden lg:block">
+      <div className="absolute bottom-28 right-12 hidden lg:block z-10">
         <p
           className="text-foreground/30 font-sans text-[10px] tracking-[0.3em] uppercase"
           style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
