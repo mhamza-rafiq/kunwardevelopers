@@ -159,10 +159,10 @@ const HorizontalTimeline = () => {
       </div>
 
       {/* Horizontal Scroll Container - centered in viewport */}
-      <div ref={triggerRef} className="relative overflow-hidden min-h-[80vh] flex items-center">
+      <div ref={triggerRef} className="relative overflow-hidden h-screen flex items-center">
         <div
           ref={trackRef}
-          className="flex gap-8 md:gap-12 px-6 md:px-12"
+          className="flex gap-8 md:gap-12 px-6 md:px-12 items-center"
           style={{ width: "fit-content" }}
         >
           {/* Left Spacer */}
@@ -171,52 +171,55 @@ const HorizontalTimeline = () => {
           {timelineData.map((item, index) => (
             <div
               key={item.year}
-              className="timeline-card flex-shrink-0 w-[85vw] md:w-[70vw] lg:w-[55vw] h-[60vh] relative"
+              className="timeline-card flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[45vw] h-[55vh] relative"
             >
-              <div className="relative h-full bg-card border border-border overflow-hidden group">
+              <div className="relative h-full bg-card border border-border overflow-hidden group cursor-pointer">
                 {/* Image */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="timeline-image w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-700"
+                    className="timeline-image w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
                 </div>
 
                 {/* Content */}
-                <div className="relative h-full flex flex-col justify-end p-8 md:p-12">
+                <div className="relative h-full flex flex-col justify-center p-8 md:p-12">
                   {/* Year Badge */}
-                  <div className="absolute top-8 left-8 md:top-12 md:left-12">
-                    <span className="text-accent font-serif text-5xl md:text-7xl font-light opacity-30">
+                  <div className="absolute top-8 right-8 md:top-10 md:right-12">
+                    <span className="text-accent font-serif text-5xl md:text-7xl font-light opacity-20 group-hover:opacity-40 transition-opacity duration-500">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  {/* Timeline Dot */}
-                  <div className="absolute top-1/2 right-8 transform -translate-y-1/2">
-                    <div className="w-4 h-4 rounded-full bg-accent animate-pulse" />
-                    <div className="absolute top-1/2 left-full w-16 h-px bg-accent/30 -translate-y-1/2" />
-                  </div>
-
-                  {/* Text Content */}
+                  {/* Always-visible: Year + Title */}
                   <div className="max-w-xl">
-                    <span className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-2 block">
+                    <span className="text-accent font-sans text-sm tracking-[0.2em] uppercase mb-3 block">
                       {item.year}
                     </span>
-                    <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+                    <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-0 group-hover:mb-5 transition-all duration-500">
                       {item.title}
                     </h3>
-                    <p className="text-muted-foreground font-sans text-sm md:text-base leading-relaxed line-clamp-5 md:line-clamp-none">
-                      {item.description}
-                    </p>
+
+                    {/* Description - hidden by default, revealed on hover */}
+                    <div className="max-h-0 opacity-0 group-hover:max-h-[300px] group-hover:opacity-100 transition-all duration-700 ease-out overflow-hidden">
+                      <p className="text-muted-foreground font-sans text-sm md:text-base leading-relaxed pt-2 line-clamp-6">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Index */}
-                  <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
-                    <span className="text-muted-foreground/30 font-sans text-sm">
+                  {/* Index - always visible */}
+                  <div className="absolute bottom-8 right-8 md:bottom-10 md:right-12">
+                    <span className="text-muted-foreground/30 font-sans text-xs tracking-wider">
                       {String(index + 1).padStart(2, "0")} / {String(timelineData.length).padStart(2, "0")}
                     </span>
+                  </div>
+
+                  {/* Hover hint */}
+                  <div className="absolute bottom-8 left-8 md:bottom-10 md:left-12 opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+                    <span className="text-muted-foreground font-sans text-xs tracking-wider uppercase">Hover to read</span>
                   </div>
                 </div>
               </div>
