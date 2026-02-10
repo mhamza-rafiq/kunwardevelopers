@@ -194,16 +194,16 @@ const Hero = () => {
           </p>
 
           {/* CTAs - Left-aligned on desktop */}
-          <div ref={ctaRef} className="inline-flex flex-row items-center gap-5 justify-center lg:justify-start">
+          <div ref={ctaRef} className="flex flex-row items-center gap-5 justify-center lg:justify-start" style={{ flexWrap: 'nowrap' }}>
             <a
               href="/top-city"
-              className="px-10 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+              className="whitespace-nowrap shrink-0 px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
             >
               Explore Top City
             </a>
             <a
               href="/about"
-              className="px-10 py-5 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+              className="whitespace-nowrap shrink-0 px-8 py-4 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
             >
               View Our Story
             </a>
