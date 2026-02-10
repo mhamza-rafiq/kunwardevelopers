@@ -1,27 +1,20 @@
 import { useRef, useLayoutEffect } from "react";
 import { gsap, ScrollTrigger } from "@/hooks/useGsapAnimations";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const BrandStory = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const wordsRef = useRef<HTMLParagraphElement>(null);
-
   useLayoutEffect(() => {
     if (!sectionRef.current || !wordsRef.current) return;
-
     const ctx = gsap.context(() => {
       // Split words for animation
       const paragraph = wordsRef.current;
       if (paragraph) {
         const text = paragraph.textContent || "";
         const words = text.split(" ");
-        paragraph.innerHTML = words
-          .map((word) => `<span class="inline-block opacity-20">${word}</span>`)
-          .join(" ");
-
+        paragraph.innerHTML = words.map(word => `<span class="inline-block opacity-20">${word}</span>`).join(" ");
         const wordSpans = paragraph.querySelectorAll("span");
-        
+
         // Animate words as you scroll
         gsap.to(wordSpans, {
           opacity: 1,
@@ -31,8 +24,8 @@ const BrandStory = () => {
             trigger: sectionRef.current,
             start: "top 60%",
             end: "bottom 40%",
-            scrub: 1,
-          },
+            scrub: 1
+          }
         });
       }
 
@@ -44,8 +37,8 @@ const BrandStory = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".brand-tagline",
-          start: "top 85%",
-        },
+          start: "top 85%"
+        }
       });
 
       // Logo mark animation
@@ -56,16 +49,13 @@ const BrandStory = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".brand-mark",
-          start: "top 85%",
-        },
+          start: "top 85%"
+        }
       });
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
-
-  return (
-    <section ref={sectionRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
+  return <section ref={sectionRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 girih-pattern opacity-50" />
 
@@ -81,10 +71,7 @@ const BrandStory = () => {
 
         {/* Story Paragraph - The Founding Truth */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <p
-            ref={wordsRef}
-            className="font-serif text-2xl md:text-3xl lg:text-4xl text-primary leading-tight"
-          >
+          <p ref={wordsRef} className="font-serif text-2xl md:text-3xl leading-tight text-primary-foreground lg:text-5xl">
             Every great city is built twice: first in the mind of those who dare to imagine it, then in the hands of those disciplined enough to realize it. Kunwar Developers is both. We are the architects of vision and the builders of permanence. From the ancient quarries of Mirpur to the modern skylines of Islamabad—our journey is Pakistan's journey.
           </p>
         </div>
@@ -102,25 +89,28 @@ const BrandStory = () => {
 
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-24 pt-16 border-t border-border">
-          {[
-            { value: "70+", label: "Years of Legacy" },
-            { value: "3", label: "Generations" },
-            { value: "10,000+", label: "Kanals Developed" },
-            { value: "25,000+", label: "Families Served" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
+          {[{
+          value: "70+",
+          label: "Years of Legacy"
+        }, {
+          value: "3",
+          label: "Generations"
+        }, {
+          value: "10,000+",
+          label: "Kanals Developed"
+        }, {
+          value: "25,000+",
+          label: "Families Served"
+        }].map(stat => <div key={stat.label} className="text-center">
               <span className="font-serif text-4xl md:text-5xl text-primary block mb-2">
                 {stat.value}
               </span>
               <span className="text-muted-foreground font-sans text-sm tracking-wider uppercase">
                 {stat.label}
               </span>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BrandStory;
