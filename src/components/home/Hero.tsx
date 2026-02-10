@@ -163,7 +163,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
 
       {/* Content - Left-aligned on desktop, centered on mobile */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-16">
+      <div className="relative z-10 container mx-auto px-6 lg:px-16 pb-32 md:pb-28">
         <div className="max-w-4xl text-center lg:text-left">
           {/* Gold accent line */}
           <div ref={accentLineRef} className="hidden lg:block w-24 h-px bg-accent mb-8" />
