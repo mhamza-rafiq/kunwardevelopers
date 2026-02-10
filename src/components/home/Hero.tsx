@@ -194,7 +194,7 @@ const Hero = () => {
           </p>
 
           {/* CTAs - Left-aligned on desktop */}
-          <div ref={ctaRef} className="flex flex-row flex-wrap gap-5 justify-center lg:justify-start">
+          <div ref={ctaRef} className="inline-flex flex-row items-center gap-5 justify-center lg:justify-start">
             <a
               href="/top-city"
               className="px-10 py-5 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
