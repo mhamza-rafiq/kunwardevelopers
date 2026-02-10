@@ -151,7 +151,7 @@ const ChainWeOwn = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="min-h-screen flex flex-col justify-center py-20 bg-background relative overflow-hidden">
+    <section ref={containerRef} className="h-screen flex flex-col justify-center bg-background relative overflow-hidden">
       {/* Corridor/Bridge Pattern - Era 2 (Infrastructure Mastery) */}
       <PatternLayer era="corridor" opacity={0.03} />
 
@@ -177,7 +177,7 @@ const ChainWeOwn = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
             {/* Block 1: Mining */}
             <div ref={block1Ref} className="flex flex-col items-center max-w-xs">
-              <div className="w-48 h-48 md:w-56 md:h-56 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
+              <div className="w-48 h-48 md:w-64 md:h-64 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span ref={stat1Ref} className="text-accent font-serif text-6xl md:text-7xl tracking-institutional">0</span>
                 <span className="text-foreground/60 font-sans text-xs tracking-[0.2em] uppercase mt-2">Leases</span>
@@ -194,7 +194,7 @@ const ChainWeOwn = () => {
 
             {/* Block 2: Construction */}
             <div ref={block2Ref} className="flex flex-col items-center max-w-xs">
-              <div className="w-48 h-48 md:w-56 md:h-56 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
+              <div className="w-48 h-48 md:w-64 md:h-64 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span ref={stat2Ref} className="text-accent font-serif text-5xl md:text-6xl tracking-institutional">C-1</span>
                 <span className="text-foreground/60 font-sans text-xs tracking-[0.2em] uppercase mt-2">License</span>
@@ -211,7 +211,7 @@ const ChainWeOwn = () => {
 
             {/* Block 3: Communities */}
             <div ref={block3Ref} className="flex flex-col items-center max-w-xs">
-              <div className="w-48 h-48 md:w-56 md:h-56 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
+              <div className="w-48 h-48 md:w-64 md:h-64 border border-accent/30 flex flex-col items-center justify-center bg-background relative group hover:border-accent/60 transition-colors duration-500">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="flex items-baseline">
                   <span ref={stat3Ref} className="text-accent font-serif text-5xl md:text-6xl tracking-institutional">0</span>

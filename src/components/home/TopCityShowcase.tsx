@@ -47,7 +47,7 @@ const TopCityShowcase = () => {
   }, []);
 
   return (
-    <section id="top-city" ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="top-city" ref={containerRef} className="relative h-screen flex items-center overflow-hidden">
       {/* Full-Bleed Background */}
       <div
         ref={bgRef}
@@ -60,7 +60,7 @@ const TopCityShowcase = () => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-background/80" />
+      <div className="absolute inset-0 bg-background/65" />
 
       {/* Node Network Pattern - Era 3 (Smart Cities) */}
       <PatternLayer era="node" opacity={0.03} />
