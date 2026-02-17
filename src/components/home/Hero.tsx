@@ -5,7 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const overlineRef = useRef<HTMLParagraphElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -13,65 +12,41 @@ const Hero = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const girihRef = useRef<HTMLDivElement>(null);
   const proofStripRef = useRef<HTMLDivElement>(null);
-  const accentLineRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Camera pullback on background
       gsap.from(bgRef.current, {
         scale: 1.15,
         duration: 2.5,
         ease: "power2.out",
       });
 
-      // Gold accent line wipe
-      gsap.from(accentLineRef.current, {
-        scaleX: 0,
-        transformOrigin: "left center",
-        duration: 1,
-        delay: 0.3,
-        ease: "power2.out",
-      });
-
-      // Overline fade in
-      gsap.from(overlineRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: 0.4,
-        ease: "power2.out",
-      });
-
-      // Main headline slide up
       gsap.from(headlineRef.current, {
         opacity: 0,
         y: 60,
         duration: 1.2,
-        delay: 0.5,
+        delay: 0.4,
         ease: "power2.out",
       });
 
-      // Subheadline fade in
       gsap.from(subheadRef.current, {
         opacity: 0,
         y: 40,
         duration: 1,
-        delay: 0.9,
+        delay: 0.8,
         ease: "power2.out",
       });
 
-      // CTA buttons — animate the container, not individual buttons
       gsap.from(ctaRef.current, {
         opacity: 0,
         y: 30,
         duration: 0.8,
-        delay: 1.2,
+        delay: 1.1,
         ease: "power2.out",
       });
 
-      // Proof strip reveal
       const proofItems = proofStripRef.current?.querySelectorAll(".proof-item");
       if (proofItems?.length) {
         gsap.from(proofItems, {
@@ -79,16 +54,15 @@ const Hero = () => {
           y: 20,
           stagger: 0.1,
           duration: 0.8,
-          delay: 1.5,
+          delay: 1.4,
           ease: "power2.out",
         });
       }
 
-      // Scroll indicator
       gsap.from(scrollRef.current, {
         opacity: 0,
         duration: 0.8,
-        delay: 1.8,
+        delay: 1.6,
         ease: "power2.out",
       });
 
@@ -97,11 +71,10 @@ const Hero = () => {
         duration: 2,
         repeat: -1,
         yoyo: true,
-        delay: 2.2,
+        delay: 2,
         ease: "sine.inOut",
       });
 
-      // Girih pattern slow parallax on scroll
       gsap.to(girihRef.current, {
         yPercent: -15,
         ease: "none",
@@ -113,7 +86,6 @@ const Hero = () => {
         },
       });
 
-      // Background parallax on scroll
       gsap.to(bgRef.current, {
         yPercent: 25,
         ease: "none",
@@ -141,10 +113,8 @@ const Hero = () => {
       ref={containerRef}
       className="relative h-screen flex flex-col bg-background overflow-hidden"
     >
-      {/* Girih Pattern Layer */}
       <div ref={girihRef} className="girih-layer" />
 
-      {/* Background Image */}
       <div
         ref={bgRef}
         className="absolute inset-0 opacity-50"
@@ -155,43 +125,27 @@ const Hero = () => {
         }}
       />
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
 
-      {/* Main Content Area — flex-grow pushes proof strip down */}
-      <div className="relative z-10 flex-1 flex items-center">
+      {/* Main Content — centered */}
+      <div className="relative z-10 flex-1 flex items-center justify-center">
         <div className="container mx-auto px-6 lg:px-16">
-          <div className="max-w-4xl text-center lg:text-left">
-            {/* Gold accent line */}
-            <div ref={accentLineRef} className="hidden lg:block w-24 h-px bg-accent mb-8" />
-
-            {/* Overline */}
-            <p
-              ref={overlineRef}
-              className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6"
-            >
-              The Earth Remembers
-            </p>
-
-            {/* Main Headline */}
+          <div className="max-w-4xl mx-auto text-center">
             <h1
               ref={headlineRef}
-              className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.1] mb-8 tracking-institutional"
+              className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.1] mb-6 tracking-institutional"
             >
-              From the stone beneath our feet to the skylines above us—
-              <span className="text-accent">we build what lasts.</span>
+              We Build What <span className="text-accent">Lasts.</span>
             </h1>
 
-            {/* Subheadline */}
             <p
               ref={subheadRef}
-              className="text-foreground/70 font-sans text-base md:text-lg max-w-3xl leading-relaxed mb-10 mx-auto lg:mx-0"
+              className="text-foreground/70 font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10"
             >
-              For seven decades, our family has understood a simple truth: the greatest developments aren't projects. They're legacies.
+              Seven decades. Three generations. From quarry to skyline—one family name on every stone.
             </p>
 
-            {/* CTAs — always side by side */}
-            <div ref={ctaRef} className="flex items-center gap-5 justify-center lg:justify-start">
+            <div ref={ctaRef} className="flex items-center gap-5 justify-center">
               <a
                 href="/top-city"
                 className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
@@ -209,7 +163,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator — between content and proof strip */}
+      {/* Scroll Indicator */}
       <div
         ref={scrollRef}
         onClick={scrollToContent}
@@ -221,41 +175,31 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Proof Strip — naturally at the bottom via flexbox */}
+      {/* Proof Strip */}
       <div
         ref={proofStripRef}
         className="relative z-10 border-t border-foreground/10 bg-background/40 backdrop-blur-sm"
       >
         <div className="container mx-auto px-6 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            <div className="proof-item text-center md:text-left">
+            <div className="proof-item text-center">
               <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">70 Years</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Three generations. One family name.</p>
             </div>
-            <div className="proof-item text-center md:text-left">
+            <div className="proof-item text-center">
               <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">Quarry to Gate</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Complete control. Complete accountability.</p>
             </div>
-            <div className="proof-item text-center md:text-left">
+            <div className="proof-item text-center">
               <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">C-1 Status</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Pakistan's highest construction certification.</p>
             </div>
-            <div className="proof-item text-center md:text-left">
+            <div className="proof-item text-center">
               <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">10,000+</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Kanals developed. 25,000+ families.</p>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Brand Mark */}
-      <div className="absolute bottom-28 right-12 hidden lg:block z-10">
-        <p
-          className="text-foreground/30 font-sans text-[10px] tracking-[0.3em] uppercase"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-        >
-          Kunwar Developers · Est. 1956
-        </p>
       </div>
     </section>
   );

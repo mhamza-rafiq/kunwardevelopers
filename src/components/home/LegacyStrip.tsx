@@ -114,7 +114,7 @@ const LegacyStrip = () => {
   }, []);
 
   return (
-    <section id="legacy" ref={containerRef} className="bg-background relative">
+    <section id="legacy" ref={containerRef} className="bg-background relative overflow-hidden">
       {/* Colony Grid Pattern - Era 1 (1972-1980) */}
       <PatternLayer era="colony" opacity={0.04} />
 

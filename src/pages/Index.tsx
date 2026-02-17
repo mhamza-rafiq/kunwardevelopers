@@ -12,25 +12,33 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* Act I: Statement of Power */}
-        <Hero />
-        
-        {/* Act II: Legacy Strip - Horizontal Pinned Timeline */}
-        <LegacyStrip />
-        
-        {/* Act III: The Chain We Own */}
-        <ChainWeOwn />
-        
-        {/* Act IV-A: Top City Flagship */}
-        <TopCityShowcase />
-        
-        {/* Act IV-B: Lakeshore High-Rise Jewel */}
-        <LakeshoreShowcase />
-        
-        {/* Supporting: Leadership */}
-        <LeadershipPreview />
+        <div className="relative z-10 bg-background">
+          <Hero />
+        </div>
+
+        <div className="relative z-20 bg-background">
+          <LegacyStrip />
+        </div>
+
+        <div className="relative z-30 bg-background">
+          <ChainWeOwn />
+        </div>
+
+        <div className="relative z-40 bg-background">
+          <TopCityShowcase />
+        </div>
+
+        <div className="relative z-50 bg-background">
+          <LakeshoreShowcase />
+        </div>
+
+        <div className="relative z-[60] bg-background">
+          <LeadershipPreview />
+        </div>
       </main>
-      <Footer />
+      <div className="relative z-[70] bg-background">
+        <Footer />
+      </div>
     </div>
   );
 };
