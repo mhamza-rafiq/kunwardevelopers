@@ -62,18 +62,14 @@ const Hero = () => {
         ease: "power2.out",
       });
 
-      // CTA buttons stagger
-      const buttons = ctaRef.current?.querySelectorAll("a");
-      if (buttons?.length) {
-        gsap.from(buttons, {
-          opacity: 0,
-          y: 30,
-          stagger: 0.15,
-          duration: 0.8,
-          delay: 1.2,
-          ease: "power2.out",
-        });
-      }
+      // CTA buttons — animate the container, not individual buttons
+      gsap.from(ctaRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        delay: 1.2,
+        ease: "power2.out",
+      });
 
       // Proof strip reveal
       const proofItems = proofStripRef.current?.querySelectorAll(".proof-item");
