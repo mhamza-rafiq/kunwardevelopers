@@ -1,111 +1,55 @@
 
-# Cinematic Full-Viewport Homepage Transformation
 
-## The Problem
+## Fix Section Spacing and Redesign Hero
 
-The homepage currently looks like a template landing page: everything centered, text-heavy hero with logo + overline + headline + paragraph + buttons + proof strip all stacked vertically. The background image is barely visible (30% opacity with heavy overlay). Sections below lack dramatic visual impact and feel like content blocks rather than cinematic "acts."
+### Problem
+The homepage sections are overlapping because of ScrollTrigger pinning in the LegacyStrip combined with inconsistent section isolation. The Hero also has too much text and is left-aligned instead of centered.
 
-## The Vision
+### Changes
 
-Transform each section into a **cinematic full-viewport frame** -- like scenes in a documentary film. Each "act" should feel like a deliberate, dramatic beat that commands the full screen.
+#### 1. Hero Section -- Center-Aligned with Less Text
+**File: `src/components/home/Hero.tsx`**
 
----
+- Center-align all content (remove `lg:text-left` and `lg:justify-start`)
+- Remove the gold accent line (only makes sense for left-aligned layout)
+- Shorten the headline to a single powerful line, e.g.: **"We Build What Lasts."**
+- Remove or shorten the subheadline to one short sentence
+- Keep CTA buttons centered and inline
+- Keep the Proof Strip at the bottom
+- Remove the vertical brand mark (bottom-right "Kunwar Developers - Est. 1956") as it conflicts with centered layout
 
-## Section-by-Section Redesign
+#### 2. Fix Section Overlap -- Add Proper Isolation
+**File: `src/components/home/LegacyStrip.tsx`**
 
-### 1. Hero Section -- "The Opening Shot"
+- Add `position: relative` and `z-index` to ensure the pinned section doesn't bleed into adjacent sections
+- Wrap the entire LegacyStrip in a container with explicit `overflow: hidden` on the outer wrapper to prevent visual bleed
 
-**Current problems:**
-- Logo, overline, headline, paragraph, 2 CTAs, and proof strip all crammed in center
-- Background image at 30% opacity is invisible
-- Too much text visible at once -- no drama
-- Proof strip feels tacked on
+**File: `src/pages/Index.tsx`**
 
-**Changes:**
-- Remove the `AnimatedLogoReveal` from hero (the header already has the logo)
-- Push the headline to left-aligned on desktop for editorial gravitas (center on mobile)
-- Increase background image opacity from 30% to 45-50% for more cinematic depth
-- Lighten the gradient overlay to let the image breathe more
-- Make the headline larger and more impactful (up to `text-8xl` on xl screens)
-- Reduce the subheading text -- show only the first 2 sentences, not the full paragraph
-- Separate the Proof Strip visually: position it at the absolute bottom of the viewport as a horizontal bar
-- Add a thin gold accent line above the headline for editorial feel
-- Use `h-screen` instead of `min-h-screen` to enforce exact viewport height
+- Wrap each section in a `<div>` with `relative z-[index]` classes to create proper stacking context, ensuring sections paint on top of each other correctly as you scroll
+- Apply ascending z-index values so later sections render above earlier pinned ones
 
-### 2. Legacy Strip -- "The Timeline"
+#### 3. Section-by-Section Spacing Fixes
+For all full-viewport sections (`ChainWeOwn`, `TopCityShowcase`, `LakeshoreShowcase`, `LeadershipPreview`):
 
-**Current:** Already has horizontal scroll pinning which is good. Minor adjustments:
-- Reduce header section padding from `py-20 md:py-32` to `py-16 md:py-24` for tighter pacing
-- Already using `h-screen` for the pinned area -- keep as is
+- Ensure each section has `relative` positioning and a stacking context via `z-10` or similar
+- Confirm `h-screen` and `overflow-hidden` are consistently applied so no content leaks out
 
-### 3. Chain We Own -- "The Differentiator"
+### Technical Details
 
-**Current problems:**
-- The three boxes (Mining, Construction, Communities) feel small and corporate
-- Section has `min-h-screen flex flex-col justify-center py-20` but content doesn't fill the space dramatically
+The root cause of the overlap is the GSAP ScrollTrigger `pin: true` on the LegacyStrip wrapper. When ScrollTrigger pins an element, it manipulates `position: fixed` and adds spacer divs. Without proper z-index stacking on subsequent sections, they can appear behind or mixed with the pinned content.
 
-**Changes:**
-- Use `h-screen` instead of `min-h-screen`
-- Make the three chain boxes larger on desktop (`w-64 h-64` instead of `w-56 h-56`)
-- Add a subtle horizontal gold line spanning the full width behind the boxes
-- Move the closing quote to a separate visual beat with more breathing room
+The fix uses CSS stacking contexts on each section wrapper in `Index.tsx` to ensure clean layer ordering:
 
-### 4. Top City Showcase -- "Flagship Reveal"
+```text
+Hero          -> z-10
+LegacyStrip   -> z-20
+ChainWeOwn    -> z-30
+TopCity       -> z-40
+Lakeshore     -> z-50
+Leadership    -> z-60
+Footer        -> z-70
+```
 
-**Current problems:**
-- Content + stats card in a 2-column grid doesn't feel cinematic
-- Background at 80% overlay is too dark
+Each wrapper div gets `relative` + the z-index + `bg-background` so sections fully cover what's behind them as you scroll.
 
-**Changes:**
-- Use `h-screen` instead of `min-h-screen`
-- Reduce overlay from `bg-background/80` to `bg-background/65` for more atmospheric imagery
-- Make the stats card more dramatic: larger typography, less card-like
-
-### 5. Lakeshore Showcase -- "The Jewel"
-
-**Changes:**
-- Use `h-screen` instead of `min-h-screen`
-- Reduce overlay from `bg-background/75` to `bg-background/60`
-- Add vertical accent lines on both sides for a framed cinematic feel
-
-### 6. Leadership Preview
-
-**Changes:**
-- Use `h-screen` instead of `min-h-screen flex flex-col justify-center py-20`
-- Use `h-screen flex items-center` for true viewport centering
-
-### 7. Footer
-
-- Keep as is -- footer should not be full viewport
-
----
-
-## Technical Details
-
-### Files Modified
-
-| File | Key Changes |
-|------|------------|
-| `src/components/home/Hero.tsx` | Remove logo, left-align content on desktop, increase bg opacity, shorten subhead, reposition proof strip to bottom, use `h-screen`, larger headline |
-| `src/components/home/ChainWeOwn.tsx` | `h-screen` instead of `min-h-screen`, larger chain boxes |
-| `src/components/home/TopCityShowcase.tsx` | `h-screen`, reduce overlay darkness |
-| `src/components/home/LakeshoreShowcase.tsx` | `h-screen`, reduce overlay darkness |
-| `src/components/home/LeadershipPreview.tsx` | `h-screen flex items-center` |
-| `src/components/home/LegacyStrip.tsx` | Tighten header padding |
-
-### Hero Layout Change (Desktop)
-
-The hero will shift from centered text to a left-aligned editorial layout on large screens:
-
-- Content container: `text-left lg:max-w-3xl lg:ml-0` (left-aligned on desktop)
-- Gold accent line: thin horizontal line above overline
-- Headline: `text-4xl md:text-6xl lg:text-7xl xl:text-8xl`
-- Subheading: Trimmed to 2 sentences only
-- CTAs: Left-aligned row
-- Proof Strip: Absolutely positioned at the bottom of the viewport, spanning full width with a subtle top border
-
-### Mobile Considerations
-
-- On mobile, hero stays centered (only left-aligns on `lg:` breakpoint)
-- `h-screen` sections may need `min-h-screen` fallback on very small screens to prevent content overflow -- we'll use `h-screen min-h-0` with overflow handling
-- Proof strip wraps to 2x2 grid on mobile, stays as 4 columns on desktop
