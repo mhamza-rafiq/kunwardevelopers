@@ -14,22 +14,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   useEffect(() => {
-    // Wait for all sections to render before creating snap
     const timeout = setTimeout(() => {
+      // Only snap non-pinned sections (exclude LegacyStrip which has its own pin)
       const sections = gsap.utils.toArray<HTMLElement>(".snap-section");
       if (sections.length === 0) return;
 
+      const maxScroll = ScrollTrigger.maxScroll(window);
+
+      // Pre-calculate snap points once after layout is stable
+      const points = sections.map((section) => {
+        const top = section.offsetTop;
+        return gsap.utils.clamp(0, 1, top / maxScroll);
+      });
+
       ScrollTrigger.create({
         snap: {
-          snapTo: 1 / (sections.length - 1),
-          duration: { min: 0.3, max: 0.6 },
-          delay: 0.1,
-          ease: "power2.inOut",
+          snapTo: points,
+          directional: true,
+          duration: { min: 0.15, max: 0.4 },
+          delay: 0.05,
+          ease: "power1.inOut",
         },
       });
 
       ScrollTrigger.refresh();
-    }, 500);
+    }, 1200);
 
     return () => {
       clearTimeout(timeout);
@@ -44,7 +53,7 @@ const Index = () => {
           <Hero />
         </div>
 
-        <div className="snap-section relative z-20 bg-background">
+        <div className="relative z-20 bg-background">
           <LegacyStrip />
         </div>
 
