@@ -128,7 +128,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
 
       {/* Main Content — centered */}
-      <div className="relative z-10 flex-1 flex items-center justify-center">
+      <div className="relative z-10 flex-1 flex items-center justify-center pt-20 sm:pt-0">
         <div className="container mx-auto px-6 lg:px-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1
