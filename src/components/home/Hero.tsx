@@ -145,16 +145,16 @@ const Hero = () => {
               Seven decades. Three generations. From quarry to skyline—one family name on every stone.
             </p>
 
-            <div ref={ctaRef} className="flex items-center gap-5 justify-center">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center">
               <a
                 href="/top-city"
-                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300"
+                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300 w-full sm:w-auto"
               >
                 Explore Top City
               </a>
               <a
                 href="/about"
-                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300"
+                className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 border border-foreground/30 text-foreground font-sans text-sm tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors duration-300 w-full sm:w-auto"
               >
                 View Our Story
               </a>
