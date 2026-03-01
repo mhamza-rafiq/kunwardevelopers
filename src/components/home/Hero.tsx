@@ -145,7 +145,7 @@ const Hero = () => {
               Seven decades. Three generations. From quarry to skyline—one family name on every stone.
             </p>
 
-            <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center">
+            <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center max-w-xs sm:max-w-none mx-auto sm:mx-0">
               <a
                 href="/top-city"
                 className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300 w-full sm:w-auto"
@@ -167,7 +167,7 @@ const Hero = () => {
       <div
         ref={scrollRef}
         onClick={scrollToContent}
-        className="relative z-10 flex justify-center pb-4 cursor-pointer"
+        className="relative z-10 flex justify-center py-6 cursor-pointer"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-foreground/50 font-sans text-[10px] tracking-[0.3em] uppercase">Scroll</span>
@@ -183,19 +183,19 @@ const Hero = () => {
         <div className="container mx-auto px-6 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="proof-item text-center">
-              <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">70 Years</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">70 Years</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Three generations. One family name.</p>
             </div>
             <div className="proof-item text-center">
-              <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">Quarry to Gate</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">Quarry to Gate</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Complete control. Complete accountability.</p>
             </div>
             <div className="proof-item text-center">
-              <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">C-1 Status</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">C-1 Status</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Pakistan's highest construction certification.</p>
             </div>
             <div className="proof-item text-center">
-              <p className="font-serif text-2xl md:text-3xl text-accent tracking-institutional mb-1">10,000+</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">10,000+</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Kanals developed. 25,000+ families.</p>
             </div>
           </div>
