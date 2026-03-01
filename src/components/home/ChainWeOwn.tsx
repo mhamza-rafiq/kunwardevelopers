@@ -151,7 +151,7 @@ const ChainWeOwn = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="h-screen flex flex-col justify-center bg-background relative overflow-hidden">
+    <section ref={containerRef} className="min-h-screen flex flex-col justify-center py-24 bg-background relative overflow-hidden">
       {/* Corridor/Bridge Pattern - Era 2 (Infrastructure Mastery) */}
       <PatternLayer era="corridor" opacity={0.03} />
 
@@ -160,7 +160,7 @@ const ChainWeOwn = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-16 md:mb-24">
+        <div ref={headerRef} className="text-center mb-12 md:mb-16">
           <p className="text-accent font-sans text-sm tracking-[0.3em] uppercase mb-6">
             Our Differentiator
           </p>
@@ -228,7 +228,7 @@ const ChainWeOwn = () => {
         </div>
 
         {/* Bottom Quote */}
-        <div ref={quoteRef} className="text-center mt-20 md:mt-32 max-w-3xl mx-auto">
+        <div ref={quoteRef} className="text-center mt-12 md:mt-16 max-w-3xl mx-auto">
           <blockquote className="border-l-2 border-accent pl-8 text-left">
             <p className="text-foreground/80 font-serif text-xl md:text-2xl italic leading-relaxed mb-4">
               "From the quarry to the community gate—we control every step. So we answer for every step."

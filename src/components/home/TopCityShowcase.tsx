@@ -47,7 +47,7 @@ const TopCityShowcase = () => {
   }, []);
 
   return (
-    <section id="top-city" ref={containerRef} className="relative h-screen flex items-center overflow-hidden">
+    <section id="top-city" ref={containerRef} className="relative min-h-screen flex items-center py-24 overflow-hidden">
       {/* Full-Bleed Background */}
       <div
         ref={bgRef}
