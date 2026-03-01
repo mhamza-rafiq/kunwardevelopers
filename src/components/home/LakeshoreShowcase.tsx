@@ -47,7 +47,7 @@ const LakeshoreShowcase = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen flex items-center overflow-hidden">
+    <section ref={containerRef} className="relative min-h-screen flex items-center py-24 overflow-hidden">
       {/* Full-Bleed Background - Vertical/Tower imagery */}
       <div
         ref={bgRef}
