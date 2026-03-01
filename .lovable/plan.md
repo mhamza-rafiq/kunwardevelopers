@@ -1,55 +1,35 @@
 
 
-## Fix Section Spacing and Redesign Hero
+## Fix Section Overlap and Spacing
 
-### Problem
-The homepage sections are overlapping because of ScrollTrigger pinning in the LegacyStrip combined with inconsistent section isolation. The Hero also has too much text and is left-aligned instead of centered.
+### Root Cause
+Sections like ChainWeOwn have `h-screen` which clips content when it exceeds viewport height. The header margins (`mb-24`), 256px stat boxes, descriptions below them, and the bottom quote easily exceed 100vh, causing content to bleed into adjacent sections.
 
 ### Changes
 
-#### 1. Hero Section -- Center-Aligned with Less Text
-**File: `src/components/home/Hero.tsx`**
+#### 1. Convert `h-screen` to `min-h-screen` with padding
+All content sections need to grow with their content instead of being hard-capped.
 
-- Center-align all content (remove `lg:text-left` and `lg:justify-start`)
-- Remove the gold accent line (only makes sense for left-aligned layout)
-- Shorten the headline to a single powerful line, e.g.: **"We Build What Lasts."**
-- Remove or shorten the subheadline to one short sentence
-- Keep CTA buttons centered and inline
-- Keep the Proof Strip at the bottom
-- Remove the vertical brand mark (bottom-right "Kunwar Developers - Est. 1956") as it conflicts with centered layout
+**`src/components/home/ChainWeOwn.tsx`** (line 154)
+- Change `h-screen flex flex-col justify-center` to `min-h-screen flex flex-col justify-center py-24`
+- Reduce `mb-16 md:mb-24` on header to `mb-12 md:mb-16` to reclaim space
+- Reduce `mt-20 md:mt-32` on quote to `mt-12 md:mt-16`
 
-#### 2. Fix Section Overlap -- Add Proper Isolation
-**File: `src/components/home/LegacyStrip.tsx`**
+**`src/components/home/TopCityShowcase.tsx`** (line 50)
+- Change `h-screen` to `min-h-screen py-24`
 
-- Add `position: relative` and `z-index` to ensure the pinned section doesn't bleed into adjacent sections
-- Wrap the entire LegacyStrip in a container with explicit `overflow: hidden` on the outer wrapper to prevent visual bleed
+**`src/components/home/LakeshoreShowcase.tsx`** (line 50)
+- Change `h-screen` to `min-h-screen py-24`
 
-**File: `src/pages/Index.tsx`**
+**`src/components/home/LeadershipPreview.tsx`** (line 50)
+- Change `h-screen` to `min-h-screen py-24`
 
-- Wrap each section in a `<div>` with `relative z-[index]` classes to create proper stacking context, ensuring sections paint on top of each other correctly as you scroll
-- Apply ascending z-index values so later sections render above earlier pinned ones
+#### 2. Hero stays `h-screen` (intentional full-viewport)
+No change needed -- Hero is designed to fill exactly one viewport.
 
-#### 3. Section-by-Section Spacing Fixes
-For all full-viewport sections (`ChainWeOwn`, `TopCityShowcase`, `LakeshoreShowcase`, `LeadershipPreview`):
+#### 3. LegacyStrip -- no structural change
+The pinned horizontal scroll wrapper already uses `h-screen` correctly for the scroll mechanic. The `overflow-hidden` and z-index isolation from prior work remain.
 
-- Ensure each section has `relative` positioning and a stacking context via `z-10` or similar
-- Confirm `h-screen` and `overflow-hidden` are consistently applied so no content leaks out
-
-### Technical Details
-
-The root cause of the overlap is the GSAP ScrollTrigger `pin: true` on the LegacyStrip wrapper. When ScrollTrigger pins an element, it manipulates `position: fixed` and adds spacer divs. Without proper z-index stacking on subsequent sections, they can appear behind or mixed with the pinned content.
-
-The fix uses CSS stacking contexts on each section wrapper in `Index.tsx` to ensure clean layer ordering:
-
-```text
-Hero          -> z-10
-LegacyStrip   -> z-20
-ChainWeOwn    -> z-30
-TopCity       -> z-40
-Lakeshore     -> z-50
-Leadership    -> z-60
-Footer        -> z-70
-```
-
-Each wrapper div gets `relative` + the z-index + `bg-background` so sections fully cover what's behind them as you scroll.
+#### 4. Footer
+Already uses auto-height with padding -- no change needed.
 
