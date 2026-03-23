@@ -59,8 +59,11 @@ export default {
         },
         // Kunwar Extended Palette
         gold: "hsl(var(--gold))",
+        terracotta: "hsl(var(--gold))",
         bronze: "hsl(var(--bronze))",
+        sienna: "hsl(var(--bronze))",
         emerald: "hsl(var(--emerald))",
+        "bottle-green": "hsl(var(--emerald))",
         navy: "hsl(var(--navy))",
         cream: "hsl(var(--cream))",
         "cream-dark": "hsl(var(--cream-dark))",
