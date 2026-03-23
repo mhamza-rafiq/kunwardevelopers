@@ -17,84 +17,26 @@ const Hero = () => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.from(bgRef.current, {
-        scale: 1.15,
-        duration: 2.5,
-        ease: "power2.out",
-      });
-
-      gsap.from(headlineRef.current, {
-        opacity: 0,
-        y: 60,
-        duration: 1.2,
-        delay: 0.4,
-        ease: "power2.out",
-      });
-
-      gsap.from(subheadRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 1,
-        delay: 0.8,
-        ease: "power2.out",
-      });
-
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 1.1,
-        ease: "power2.out",
-      });
+      gsap.from(bgRef.current, { scale: 1.15, duration: 2.5, ease: "power2.out" });
+      gsap.from(headlineRef.current, { opacity: 0, y: 60, duration: 1.2, delay: 0.4, ease: "power2.out" });
+      gsap.from(subheadRef.current, { opacity: 0, y: 40, duration: 1, delay: 0.8, ease: "power2.out" });
+      gsap.from(ctaRef.current, { opacity: 0, y: 30, duration: 0.8, delay: 1.1, ease: "power2.out" });
 
       const proofItems = proofStripRef.current?.querySelectorAll(".proof-item");
       if (proofItems?.length) {
-        gsap.from(proofItems, {
-          opacity: 0,
-          y: 20,
-          stagger: 0.1,
-          duration: 0.8,
-          delay: 1.4,
-          ease: "power2.out",
-        });
+        gsap.from(proofItems, { opacity: 0, y: 20, stagger: 0.1, duration: 0.8, delay: 1.4, ease: "power2.out" });
       }
 
-      gsap.from(scrollRef.current, {
-        opacity: 0,
-        duration: 0.8,
-        delay: 1.6,
-        ease: "power2.out",
-      });
-
-      gsap.to(scrollRef.current, {
-        opacity: 0.4,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        delay: 2,
-        ease: "sine.inOut",
-      });
+      gsap.from(scrollRef.current, { opacity: 0, duration: 0.8, delay: 1.6, ease: "power2.out" });
+      gsap.to(scrollRef.current, { opacity: 0.4, duration: 2, repeat: -1, yoyo: true, delay: 2, ease: "sine.inOut" });
 
       gsap.to(girihRef.current, {
-        yPercent: -15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
+        yPercent: -15, ease: "none",
+        scrollTrigger: { trigger: containerRef.current, start: "top top", end: "bottom top", scrub: true },
       });
-
       gsap.to(bgRef.current, {
-        yPercent: 25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
+        yPercent: 25, ease: "none",
+        scrollTrigger: { trigger: containerRef.current, start: "top top", end: "bottom top", scrub: true },
       });
     }, containerRef);
 
@@ -102,19 +44,12 @@ const Hero = () => {
   }, []);
 
   const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-screen flex flex-col bg-background overflow-hidden"
-    >
+    <section ref={containerRef} className="relative h-screen flex flex-col bg-background overflow-hidden">
       <div ref={girihRef} className="girih-layer" />
-
       <div
         ref={bgRef}
         className="absolute inset-0 opacity-50"
@@ -124,10 +59,9 @@ const Hero = () => {
           backgroundPosition: "center 40%",
         }}
       />
-
       <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90" />
 
-      {/* Main Content — centered */}
+      {/* Main Content */}
       <div className="relative z-10 flex-1 flex items-center justify-center pt-20 sm:pt-0">
         <div className="container mx-auto px-6 lg:px-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -137,20 +71,18 @@ const Hero = () => {
             >
               We Build What <span className="text-accent">Lasts.</span>
             </h1>
-
             <p
               ref={subheadRef}
               className="text-foreground/70 font-sans text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10"
             >
-              Seven decades. Three generations. From quarry to skyline—one family name on every stone.
+              Seven decades of building communities, legacies, and futures — from mining to construction to thriving neighborhoods.
             </p>
-
             <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 justify-center max-w-xs sm:max-w-none mx-auto sm:mx-0">
               <a
-                href="/top-city"
+                href="/projects"
                 className="inline-flex items-center justify-center whitespace-nowrap px-8 py-4 bg-accent text-accent-foreground font-sans text-sm tracking-[0.15em] uppercase hover:scale-[1.03] transition-transform duration-300 w-full sm:w-auto"
               >
-                Explore Top City
+                Explore Our Projects
               </a>
               <a
                 href="/about"
@@ -164,11 +96,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div
-        ref={scrollRef}
-        onClick={scrollToContent}
-        className="relative z-10 flex justify-center py-6 cursor-pointer"
-      >
+      <div ref={scrollRef} onClick={scrollToContent} className="relative z-10 flex justify-center py-6 cursor-pointer">
         <div className="flex flex-col items-center gap-2">
           <span className="text-foreground/50 font-sans text-[10px] tracking-[0.3em] uppercase">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-accent to-transparent" />
@@ -176,10 +104,7 @@ const Hero = () => {
       </div>
 
       {/* Proof Strip */}
-      <div
-        ref={proofStripRef}
-        className="relative z-10 border-t border-foreground/10 bg-background/40 backdrop-blur-sm"
-      >
+      <div ref={proofStripRef} className="relative z-10 border-t border-foreground/10 bg-background/40 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="proof-item text-center">
@@ -187,15 +112,15 @@ const Hero = () => {
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Three generations. One family name.</p>
             </div>
             <div className="proof-item text-center">
-              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">Quarry to Gate</p>
-              <p className="text-foreground/50 font-sans text-xs tracking-wide">Complete control. Complete accountability.</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">Mining to Communities</p>
+              <p className="text-foreground/50 font-sans text-xs tracking-wide">Complete vertical integration.</p>
             </div>
             <div className="proof-item text-center">
               <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">C-1 Status</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Pakistan's highest construction certification.</p>
             </div>
             <div className="proof-item text-center">
-              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">10,000+</p>
+              <p className="font-serif text-xl md:text-3xl text-accent tracking-institutional mb-1">30,000+</p>
               <p className="text-foreground/50 font-sans text-xs tracking-wide">Kanals developed. 25,000+ families.</p>
             </div>
           </div>

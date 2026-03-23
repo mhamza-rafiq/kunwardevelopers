@@ -33,100 +33,100 @@ html.lenis, html.lenis body {
 }
 
 /* Kunwar Developers Design System
-   Cinematic Institutional Film Aesthetic
+   Terracotta & Bottle Green Palette
    "Power + Permanence" - Dark Canvas Default
    All colors in HSL format
 */
 
 @layer base {
   :root {
-    /* Cinematic Dark Theme - Default Canvas */
-    --background: 216 71% 8%; /* Deep Midnight Navy */
-    --foreground: 43 38% 93%; /* Sandstone Cream */
+    /* Warm Dark Theme - Default Canvas */
+    --background: 30 18% 9%; /* Deep Charcoal #1A1612 */
+    --foreground: 33 56% 93%; /* Warm Cream #F5EDE3 */
 
-    --card: 216 71% 11%;
-    --card-foreground: 43 38% 93%;
+    --card: 30 18% 12%;
+    --card-foreground: 33 56% 93%;
 
-    --popover: 216 71% 10%;
-    --popover-foreground: 43 38% 93%;
+    --popover: 30 18% 10%;
+    --popover-foreground: 33 56% 93%;
 
-    --primary: 216 71% 8%; /* Midnight Navy */
-    --primary-foreground: 43 38% 93%;
+    --primary: 30 18% 9%;
+    --primary-foreground: 33 56% 93%;
 
-    --secondary: 43 38% 93%; /* Sandstone Cream */
-    --secondary-foreground: 216 71% 13%;
+    --secondary: 33 56% 93%; /* Warm Cream */
+    --secondary-foreground: 30 18% 13%;
 
-    --muted: 216 50% 15%;
-    --muted-foreground: 43 20% 70%;
+    --muted: 30 12% 15%;
+    --muted-foreground: 33 20% 70%;
 
-    --accent: 43 65% 52%; /* Brushed Gold */
-    --accent-foreground: 216 71% 8%;
+    --accent: 21 63% 47%; /* Terracotta #C4622D */
+    --accent-foreground: 33 56% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 216 50% 18%;
-    --input: 216 50% 18%;
-    --ring: 43 65% 52%;
+    --border: 30 12% 18%;
+    --input: 30 12% 18%;
+    --ring: 21 63% 47%;
 
     --radius: 0.25rem;
 
     /* Extended Kunwar Palette */
-    --gold: 43 65% 52%; /* Brushed Gold #D4AF37 */
-    --bronze: 30 35% 49%; /* Imperial Bronze #A67C52 */
-    --emerald: 151 62% 29%; /* Emerald Green #1B7741 */
-    --navy: 216 71% 8%; /* Deep Midnight Navy */
-    --navy-light: 216 71% 13%;
-    --cream: 43 38% 93%; /* Sandstone Cream #F5F2E8 */
-    --cream-dark: 43 25% 88%;
+    --gold: 21 63% 47%; /* Terracotta #C4622D */
+    --bronze: 23 40% 39%; /* Sienna #8B5A3C */
+    --emerald: 162 57% 24%; /* Bottle Green #1A5E4A */
+    --navy: 30 18% 9%; /* Deep Charcoal */
+    --navy-light: 30 18% 13%;
+    --cream: 33 56% 93%; /* Warm Cream #F5EDE3 */
+    --cream-dark: 33 30% 88%;
 
-    --sidebar-background: 216 71% 6%;
-    --sidebar-foreground: 43 38% 93%;
-    --sidebar-primary: 43 65% 52%;
-    --sidebar-primary-foreground: 216 71% 8%;
-    --sidebar-accent: 216 50% 12%;
-    --sidebar-accent-foreground: 43 38% 93%;
-    --sidebar-border: 216 50% 15%;
-    --sidebar-ring: 43 65% 52%;
+    --sidebar-background: 30 18% 6%;
+    --sidebar-foreground: 33 56% 93%;
+    --sidebar-primary: 21 63% 47%;
+    --sidebar-primary-foreground: 33 56% 95%;
+    --sidebar-accent: 30 12% 12%;
+    --sidebar-accent-foreground: 33 56% 93%;
+    --sidebar-border: 30 12% 15%;
+    --sidebar-ring: 21 63% 47%;
   }
 
   .dark {
-    --background: 216 71% 5%;
-    --foreground: 43 38% 93%;
+    --background: 30 18% 6%;
+    --foreground: 33 56% 93%;
 
-    --card: 216 71% 8%;
-    --card-foreground: 43 38% 93%;
+    --card: 30 18% 9%;
+    --card-foreground: 33 56% 93%;
 
-    --popover: 216 71% 8%;
-    --popover-foreground: 43 38% 93%;
+    --popover: 30 18% 9%;
+    --popover-foreground: 33 56% 93%;
 
-    --primary: 43 65% 52%;
-    --primary-foreground: 216 71% 8%;
+    --primary: 21 63% 47%;
+    --primary-foreground: 30 18% 9%;
 
-    --secondary: 216 50% 12%;
-    --secondary-foreground: 43 38% 93%;
+    --secondary: 30 12% 12%;
+    --secondary-foreground: 33 56% 93%;
 
-    --muted: 216 50% 12%;
-    --muted-foreground: 43 20% 65%;
+    --muted: 30 12% 12%;
+    --muted-foreground: 33 20% 65%;
 
-    --accent: 43 65% 52%;
-    --accent-foreground: 216 71% 8%;
+    --accent: 21 63% 47%;
+    --accent-foreground: 30 18% 9%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 216 50% 15%;
-    --input: 216 50% 15%;
-    --ring: 43 65% 52%;
+    --border: 30 12% 15%;
+    --input: 30 12% 15%;
+    --ring: 21 63% 47%;
 
-    --sidebar-background: 216 71% 4%;
-    --sidebar-foreground: 43 38% 93%;
-    --sidebar-primary: 43 65% 52%;
-    --sidebar-primary-foreground: 216 71% 8%;
-    --sidebar-accent: 216 50% 10%;
-    --sidebar-accent-foreground: 43 38% 93%;
-    --sidebar-border: 216 50% 12%;
-    --sidebar-ring: 43 65% 52%;
+    --sidebar-background: 30 18% 4%;
+    --sidebar-foreground: 33 56% 93%;
+    --sidebar-primary: 21 63% 47%;
+    --sidebar-primary-foreground: 30 18% 9%;
+    --sidebar-accent: 30 12% 10%;
+    --sidebar-accent-foreground: 33 56% 93%;
+    --sidebar-border: 30 12% 12%;
+    --sidebar-ring: 21 63% 47%;
   }
 }
 
@@ -169,7 +169,7 @@ html.lenis, html.lenis body {
 
   /* Girih pattern overlay - Subtle 3-4% for cinematic watermark */
   .girih-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.04'%3E%3Cpath d='M30 0L60 30L30 60L0 30z M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4622D' fill-opacity='0.04'%3E%3Cpath d='M30 0L60 30L30 60L0 30z M30 10L50 30L30 50L10 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* Slow parallax layer for girih */
@@ -178,26 +178,26 @@ html.lenis, html.lenis body {
     inset: 0;
     pointer-events: none;
     opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='1'%3E%3Cpath d='M40 0L80 40L40 80L0 40z M40 15L65 40L40 65L15 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4622D' fill-opacity='1'%3E%3Cpath d='M40 0L80 40L40 80L0 40z M40 15L65 40L40 65L15 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* Three-Era Pattern System */
   
-  /* Era 1: Colony Grid Pattern (1972-1980) - Cream + Bronze */
+  /* Era 1: Colony Grid Pattern (1972-1980) - Cream + Sienna */
   .pattern-colony {
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23A67C52' stroke-width='0.5'%3E%3Crect x='5' y='5' width='12' height='12'/%3E%3Crect x='23' y='5' width='12' height='12'/%3E%3Crect x='5' y='23' width='12' height='12'/%3E%3Crect x='23' y='23' width='12' height='12'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%238B5A3C' stroke-width='0.5'%3E%3Crect x='5' y='5' width='12' height='12'/%3E%3Crect x='23' y='5' width='12' height='12'/%3E%3Crect x='5' y='23' width='12' height='12'/%3E%3Crect x='23' y='23' width='12' height='12'/%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.06;
   }
 
-  /* Era 2: Corridor/Bridge Pattern (2010-2018) - Slate + Emerald */
+  /* Era 2: Corridor/Bridge Pattern (2010-2018) - Slate + Bottle Green */
   .pattern-corridor {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='30' viewBox='0 0 60 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231B7741' stroke-width='0.5'%3E%3Cline x1='0' y1='15' x2='60' y2='15'/%3E%3Cline x1='10' y1='5' x2='10' y2='25'/%3E%3Cline x1='30' y1='5' x2='30' y2='25'/%3E%3Cline x1='50' y1='5' x2='50' y2='25'/%3E%3Cpath d='M0 10 Q15 5 30 10 T60 10' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='30' viewBox='0 0 60 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231A5E4A' stroke-width='0.5'%3E%3Cline x1='0' y1='15' x2='60' y2='15'/%3E%3Cline x1='10' y1='5' x2='10' y2='25'/%3E%3Cline x1='30' y1='5' x2='30' y2='25'/%3E%3Cline x1='50' y1='5' x2='50' y2='25'/%3E%3Cpath d='M0 10 Q15 5 30 10 T60 10' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.05;
   }
 
   /* Era 3: Node Network Pattern (2024-Present) - All four tones */
   .pattern-node {
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23D4AF37' fill-opacity='0.5'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23A67C52' fill-opacity='0.4'/%3E%3Ccircle cx='70' cy='10' r='2' fill='%231B7741' fill-opacity='0.4'/%3E%3Ccircle cx='10' cy='70' r='2' fill='%231B7741' fill-opacity='0.4'/%3E%3Ccircle cx='70' cy='70' r='2' fill='%23A67C52' fill-opacity='0.4'/%3E%3Cline x1='10' y1='10' x2='40' y2='40' stroke='%23D4AF37' stroke-width='0.3'/%3E%3Cline x1='70' y1='10' x2='40' y2='40' stroke='%23D4AF37' stroke-width='0.3'/%3E%3Cline x1='10' y1='70' x2='40' y2='40' stroke='%23D4AF37' stroke-width='0.3'/%3E%3Cline x1='70' y1='70' x2='40' y2='40' stroke='%23D4AF37' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23C4622D' fill-opacity='0.5'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%238B5A3C' fill-opacity='0.4'/%3E%3Ccircle cx='70' cy='10' r='2' fill='%231A5E4A' fill-opacity='0.4'/%3E%3Ccircle cx='10' cy='70' r='2' fill='%231A5E4A' fill-opacity='0.4'/%3E%3Ccircle cx='70' cy='70' r='2' fill='%238B5A3C' fill-opacity='0.4'/%3E%3Cline x1='10' y1='10' x2='40' y2='40' stroke='%23C4622D' stroke-width='0.3'/%3E%3Cline x1='70' y1='10' x2='40' y2='40' stroke='%23C4622D' stroke-width='0.3'/%3E%3Cline x1='10' y1='70' x2='40' y2='40' stroke='%23C4622D' stroke-width='0.3'/%3E%3Cline x1='70' y1='70' x2='40' y2='40' stroke='%23C4622D' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.04;
   }
 }
